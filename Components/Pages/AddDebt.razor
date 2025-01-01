@@ -1,0 +1,122 @@
+﻿@page "/adddebt"
+
+
+<div class="add-debt-container">
+    <h1>Add Debt</h1>
+    
+
+        <div class="form-group">
+            <label for="source">Source</label>
+            <InputText id="source" @bind-Value="debtModel.Source" placeholder="Enter source" />
+        </div>
+
+        <div class="form-group">
+            <label for="amount">Amount</label>
+            <InputNumber id="amount" @bind-Value="debtModel.Amount" placeholder="Enter amount" />
+        </div>
+
+        <div class="form-group">
+            <label for="notes">Notes</label>
+            <InputText id="notes" @bind-Value="debtModel.Notes" placeholder="Add notes" />
+        </div>
+
+        <div class="form-group">
+            <label for="date">Date</label>
+            <InputDate id="date" @bind-Value="debtModel.Date" />
+        </div>
+
+        <button type="submit" class="btn-submit">Add Debt</button>
+        <NavLink class="back" href="/dashboard">Back</NavLink>
+
+</div>
+
+<style>
+    .back {
+        background: #;
+        color: black;
+        margin: 10px 0;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+    }
+    .add-debt-container {
+        max-width: 500px;
+        margin: 50px auto;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    .add-debt-container h1 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 15px;
+    }
+
+    .form-group label {
+        margin-bottom: 5px;
+        font-size: 14px;
+        color: #333;
+    }
+
+    .form-group input,
+    .form-group .input-text,
+    .form-group .input-number,
+    .form-group .input-date {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 14px;
+    }
+
+    .btn-submit {
+        background: #007bff;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+        width: 100%;
+    }
+
+    .btn-submit:hover {
+        background: #0056b3;
+    }
+</style>
+
+@code {
+    private DebtModel debtModel = new();
+
+    private void HandleSubmit()
+    {
+        // Process the form submission
+        // For example, save to database or display a success message
+        Console.WriteLine("Form Submitted!");
+        Console.WriteLine($"Source: {debtModel.Source}");
+        Console.WriteLine($"Amount: {debtModel.Amount}");
+        Console.WriteLine($"Notes: {debtModel.Notes}");
+        Console.WriteLine($"Date: {debtModel.Date}");
+    }
+
+    public class DebtModel
+    {
+        public string Source { get; set; }
+        public decimal Amount { get; set; }
+        public string Notes { get; set; }
+        public DateTime Date { get; set; }
+    }
+}

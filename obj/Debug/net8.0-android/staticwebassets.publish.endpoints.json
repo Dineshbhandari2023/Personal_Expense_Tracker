@@ -3,7 +3,7 @@
   "ManifestType": "Publish",
   "Endpoints": [
     {
-      "Route": "ExpenseTracker.au9wn8c9iq.styles.css",
+      "Route": "ExpenseTracker.g22z3imsl2.styles.css",
       "AssetFile": "ExpenseTracker.styles.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -17,7 +17,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "5481"
+          "Value": "1796"
         },
         {
           "Name": "Content-Type",
@@ -25,21 +25,21 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"0pBYGHP6cdEz/Au54UbdmuP83YPORRBNGKwYZsNNOpg=\""
+          "Value": "\"yD8ztPVu/Wev+QYNp/0br13+z8rbb1eY4aia4JSGncU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 17 Dec 2024 03:10:13 GMT"
+          "Value": "Wed, 01 Jan 2025 08:19:31 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "au9wn8c9iq"
+          "Value": "g22z3imsl2"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-0pBYGHP6cdEz/Au54UbdmuP83YPORRBNGKwYZsNNOpg="
+          "Value": "sha256-yD8ztPVu/Wev+QYNp/0br13+z8rbb1eY4aia4JSGncU="
         },
         {
           "Name": "label",
@@ -62,7 +62,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "5481"
+          "Value": "1796"
         },
         {
           "Name": "Content-Type",
@@ -70,17 +70,17 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"0pBYGHP6cdEz/Au54UbdmuP83YPORRBNGKwYZsNNOpg=\""
+          "Value": "\"yD8ztPVu/Wev+QYNp/0br13+z8rbb1eY4aia4JSGncU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 17 Dec 2024 03:10:13 GMT"
+          "Value": "Wed, 01 Jan 2025 08:19:31 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-0pBYGHP6cdEz/Au54UbdmuP83YPORRBNGKwYZsNNOpg="
+          "Value": "sha256-yD8ztPVu/Wev+QYNp/0br13+z8rbb1eY4aia4JSGncU="
         }
       ]
     },

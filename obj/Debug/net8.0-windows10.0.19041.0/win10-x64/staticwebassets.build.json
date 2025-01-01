@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "4eZBV3rQvf2w4LqEAzGqi848Fdb+ng2JzQsNKWyia48=",
+  "Hash": "XQ/oqrMtg65+bP1Ldq7H8d3cplbU76UEJFip+3/Yt9k=",
   "Source": "ExpenseTracker",
   "BasePath": "/",
   "Mode": "Root",
@@ -31,8 +31,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ApplicationBundle",
-      "Fingerprint": "au9wn8c9iq",
-      "Integrity": "0pBYGHP6cdEz/Au54UbdmuP83YPORRBNGKwYZsNNOpg=",
+      "Fingerprint": "g22z3imsl2",
+      "Integrity": "yD8ztPVu/Wev+QYNp/0br13+z8rbb1eY4aia4JSGncU=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Dinesh Bhandari\\OneDrive\\Desktop\\ad\\ExpenseTracker\\obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\scopedcss\\bundle\\ExpenseTracker.styles.css"
@@ -52,8 +52,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ProjectBundle",
-      "Fingerprint": "au9wn8c9iq",
-      "Integrity": "0pBYGHP6cdEz/Au54UbdmuP83YPORRBNGKwYZsNNOpg=",
+      "Fingerprint": "g22z3imsl2",
+      "Integrity": "yD8ztPVu/Wev+QYNp/0br13+z8rbb1eY4aia4JSGncU=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Dinesh Bhandari\\OneDrive\\Desktop\\ad\\ExpenseTracker\\obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\scopedcss\\projectbundle\\ExpenseTracker.bundle.scp.css"
@@ -412,96 +412,6 @@
       ]
     },
     {
-      "Route": "ExpenseTracker.au9wn8c9iq.bundle.scp.css",
-      "AssetFile": "C:\\Users\\Dinesh Bhandari\\OneDrive\\Desktop\\ad\\ExpenseTracker\\obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\scopedcss\\projectbundle\\ExpenseTracker.bundle.scp.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "5481"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"0pBYGHP6cdEz/Au54UbdmuP83YPORRBNGKwYZsNNOpg=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 17 Dec 2024 03:10:18 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "au9wn8c9iq"
-        },
-        {
-          "Name": "label",
-          "Value": "ExpenseTracker.bundle.scp.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-0pBYGHP6cdEz/Au54UbdmuP83YPORRBNGKwYZsNNOpg="
-        }
-      ]
-    },
-    {
-      "Route": "ExpenseTracker.au9wn8c9iq.styles.css",
-      "AssetFile": "C:\\Users\\Dinesh Bhandari\\OneDrive\\Desktop\\ad\\ExpenseTracker\\obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\scopedcss\\bundle\\ExpenseTracker.styles.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "5481"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"0pBYGHP6cdEz/Au54UbdmuP83YPORRBNGKwYZsNNOpg=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 17 Dec 2024 03:10:18 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "au9wn8c9iq"
-        },
-        {
-          "Name": "label",
-          "Value": "ExpenseTracker.styles.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-0pBYGHP6cdEz/Au54UbdmuP83YPORRBNGKwYZsNNOpg="
-        }
-      ]
-    },
-    {
       "Route": "ExpenseTracker.bundle.scp.css",
       "AssetFile": "C:\\Users\\Dinesh Bhandari\\OneDrive\\Desktop\\ad\\ExpenseTracker\\obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\scopedcss\\projectbundle\\ExpenseTracker.bundle.scp.css",
       "Selectors": [],
@@ -512,7 +422,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "5481"
+          "Value": "1796"
         },
         {
           "Name": "Content-Type",
@@ -520,11 +430,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"0pBYGHP6cdEz/Au54UbdmuP83YPORRBNGKwYZsNNOpg=\""
+          "Value": "\"yD8ztPVu/Wev+QYNp/0br13+z8rbb1eY4aia4JSGncU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 17 Dec 2024 03:10:18 GMT"
+          "Value": "Wed, 01 Jan 2025 08:19:33 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -534,7 +444,97 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-0pBYGHP6cdEz/Au54UbdmuP83YPORRBNGKwYZsNNOpg="
+          "Value": "sha256-yD8ztPVu/Wev+QYNp/0br13+z8rbb1eY4aia4JSGncU="
+        }
+      ]
+    },
+    {
+      "Route": "ExpenseTracker.g22z3imsl2.bundle.scp.css",
+      "AssetFile": "C:\\Users\\Dinesh Bhandari\\OneDrive\\Desktop\\ad\\ExpenseTracker\\obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\scopedcss\\projectbundle\\ExpenseTracker.bundle.scp.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1796"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"yD8ztPVu/Wev+QYNp/0br13+z8rbb1eY4aia4JSGncU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 01 Jan 2025 08:19:33 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "g22z3imsl2"
+        },
+        {
+          "Name": "label",
+          "Value": "ExpenseTracker.bundle.scp.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-yD8ztPVu/Wev+QYNp/0br13+z8rbb1eY4aia4JSGncU="
+        }
+      ]
+    },
+    {
+      "Route": "ExpenseTracker.g22z3imsl2.styles.css",
+      "AssetFile": "C:\\Users\\Dinesh Bhandari\\OneDrive\\Desktop\\ad\\ExpenseTracker\\obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\scopedcss\\bundle\\ExpenseTracker.styles.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1796"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"yD8ztPVu/Wev+QYNp/0br13+z8rbb1eY4aia4JSGncU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 01 Jan 2025 08:19:33 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "g22z3imsl2"
+        },
+        {
+          "Name": "label",
+          "Value": "ExpenseTracker.styles.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-yD8ztPVu/Wev+QYNp/0br13+z8rbb1eY4aia4JSGncU="
         }
       ]
     },
@@ -549,7 +549,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "5481"
+          "Value": "1796"
         },
         {
           "Name": "Content-Type",
@@ -557,11 +557,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"0pBYGHP6cdEz/Au54UbdmuP83YPORRBNGKwYZsNNOpg=\""
+          "Value": "\"yD8ztPVu/Wev+QYNp/0br13+z8rbb1eY4aia4JSGncU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 17 Dec 2024 03:10:18 GMT"
+          "Value": "Wed, 01 Jan 2025 08:19:33 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -571,7 +571,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-0pBYGHP6cdEz/Au54UbdmuP83YPORRBNGKwYZsNNOpg="
+          "Value": "sha256-yD8ztPVu/Wev+QYNp/0br13+z8rbb1eY4aia4JSGncU="
         }
       ]
     },

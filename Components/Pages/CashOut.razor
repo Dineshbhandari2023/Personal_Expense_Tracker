@@ -1,0 +1,100 @@
+﻿@page "/cashout"
+@inject NavigationManager NavigationManager
+
+<h3>Cash Out</h3>
+
+<div class="cashout-form">
+    <form>
+        <div>
+            <label for="purpose">Purpose</label>
+            <input type="text" id="purpose" placeholder="Enter purpose" />
+        </div>
+        <div>
+            <label for="amount">Amount</label>
+            <input type="number" id="amount" placeholder="Enter amount" />
+        </div>
+        <div>
+            <label for="notes">Notes</label>
+            <input type="text" id="notes" placeholder="Enter notes" />
+        </div>
+        <div>
+            <label for="date">Date</label>
+            <input type="date" id="date" required />
+        </div>
+        <div>
+            <label for="tags">Tags</label>
+            <input type="text" id="tags" placeholder="Enter tags" />
+        </div>
+        <button type="submit" class="btn-submit">Cash Out</button>
+        <NavLink class="back" href="/dashboard">Back</NavLink>
+    </form>
+
+    
+</div>
+
+<style>
+     .back {
+        background: #;
+        color: black;
+        margin: 10px 0;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+    }
+    .cashout-form {
+        max-width: 400px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    input {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .btn-submit {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+    }
+
+        .btn-submit:hover {
+            background-color: #0056b3;
+        }
+
+    .message {
+        margin-top: 10px;
+        padding: 10px;
+        background-color: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+        border-radius: 5px;
+        text-align: center;
+    }
+</style>
+
+@code {
+    private void Back()
+    {
+        NavigationManager.NavigateTo("/dashboard");
+    }
+}

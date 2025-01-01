@@ -1,0 +1,155 @@
+﻿@page "/register"
+@inject UserService UserService
+@inject NavigationManager NavigationManager
+@using ExpenseTracker.Components.Layout
+@layout FirstLayout
+@using ExpenseTracker.Models
+
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+    }
+
+    .register {
+        margin: 20px 0;
+        font-weight: 600;
+        font-size: 40px;
+        text-align: center;
+        margin: 10px 0;
+        padding: 4px;
+    }
+
+    .register-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        justify-content: center;
+        height: 60vh;
+    }
+
+    .input-field {
+        display: block;
+        width: 100%;
+        max-width: 300px;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        font-size: 16px;
+    }
+
+    .register-button {
+        width: 50%;
+        margin: 0 auto;
+        max-width: 150px;
+        padding: 5px 10px;
+        background-color: black;
+        font-weight: 600;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.3s;
+        border: 1px solid black;
+    }
+
+        .register-button:hover {
+            background-color: white;
+            color: black;
+            transition: 0.3s;
+            font-weight: 600;
+        }
+
+    .message {
+        margin-top: 10px;
+        font-size: 14px;
+        color: red;
+        text-align: center;
+    }
+
+    .select-field {
+        display: block;
+        width: 100%;
+        max-width: 300px;
+        padding: 20px 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        outline: none;
+        font-size: 16px;
+        background-color: white;
+        color: black; /* Ensure the text color matches the input fields */
+    }
+
+</style>
+
+
+
+<div class="register-container">
+    <h3 class="register"> Create MoneyMap Account</h3>
+    <input class="input-field" @bind="RegisterUsername" placeholder="Username" />
+    <input class="input-field" @bind="RegisterPassword" placeholder="Password" type="password" />
+    <input class="input-field" @bind="RegisterEmail" placeholder="Email" />
+    <select class="select-field" @bind="SelectedCurrency">
+        <option value="" disabled selected>Select Currency</option>
+        <option value="USD">USD</option>
+        <option value="NPR">NPR</option>
+    </select>
+
+
+    <button class="register-button" @onclick="RegisterPage">Register</button>
+        <a class="register-link" href="/">Already have an account?</a>
+</div>
+
+@if (!string.IsNullOrEmpty(Message))
+{
+    <p class="message">@Message</p>
+}
+
+@code {
+    private string RegisterUsername = "";
+    private string RegisterPassword = "";
+    private string RegisterEmail = "";
+    private string SelectedCurrency = "USD";
+    private string Message = "";
+
+    private List<User> Users = new();
+
+    protected override void OnInitialized()
+    {
+        Users = UserService.LoadUsers();
+    }
+
+    private void RegisterPage()
+    {
+        if (string.IsNullOrWhiteSpace(RegisterUsername) || string.IsNullOrWhiteSpace(RegisterPassword))
+        {
+            Message = "Username and password are required.";
+            return;
+        }
+
+        if (Users.Any(u => u.Username == RegisterUsername))
+        {
+            Message = "Username already exists.";
+            return;
+        }
+
+        var newUser = new User
+            {
+                Username = RegisterUsername,
+                Password = UserService.HashPassword(RegisterPassword),
+                Email = RegisterEmail,
+                // Assuming User model has a Currency property
+            };
+
+        Users.Add(newUser);
+        UserService.SaveUsers(Users);
+
+        Message = "Registration successful. Redirecting to login...";
+        Task.Delay(2000).ContinueWith(_ => NavigationManager.NavigateTo("/"));
+    }
+}

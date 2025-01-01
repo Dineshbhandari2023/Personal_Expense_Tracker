@@ -58,6 +58,26 @@
     </ItemGroup>
 
     <ItemGroup>
+      <AndroidResource Remove="Components\NewFolder\**" />
+      <AndroidResource Remove="NewFolder\**" />
+      <Compile Remove="Components\NewFolder\**" />
+      <Compile Remove="NewFolder\**" />
+      <Content Remove="Components\NewFolder\**" />
+      <Content Remove="NewFolder\**" />
+      <EmbeddedResource Remove="Components\NewFolder\**" />
+      <EmbeddedResource Remove="NewFolder\**" />
+      <MauiXaml Remove="Components\NewFolder\**" />
+      <MauiXaml Remove="NewFolder\**" />
+      <None Remove="Components\NewFolder\**" />
+      <None Remove="NewFolder\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.0" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.0">
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
         <PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
         <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
         <PackageReference Include="Microsoft.AspNetCore.Components.WebView.Maui" Version="$(MauiVersion)" />

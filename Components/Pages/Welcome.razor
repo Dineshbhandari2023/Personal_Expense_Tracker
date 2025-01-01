@@ -1,0 +1,125 @@
+﻿@* @page "/welcome" *@
+@* @using Microsoft.AspNetCore.Components *@
+
+@* <div class="welcome-container"> *@
+@*     <img src="img/wallet.png" alt="Welcome Image" class="welcome-image" /> *@
+@*     <h1>Welcome to Expense Tracker!</h1> *@
+@*     <p>Track your expenses and manage your finances</p> *@
+@*     <button class="btn-continue" @onclick="Continue">Continue</button> *@
+@* </div> *@
+
+@* <style> *@
+@*     .welcome-container { *@
+@*         display: flex; *@
+@*         flex-direction: column; *@
+@*         align-items: center; *@
+@*         justify-content: center; *@
+@*         height: 100vh; *@
+@*         background-color: #0d3b66; *@
+@*         color: white; *@
+@*         text-align: center; *@
+@*     } *@
+
+@*     .welcome-image { *@
+@*         width: 150px; *@
+@*         height: 150px; *@
+@*         margin-bottom: 20px; *@
+@*     } *@
+
+@*     h1 { *@
+@*         font-size: 32px; *@
+@*         margin-bottom: 10px; *@
+@*     } *@
+
+@*     p { *@
+@*         font-size: 18px; *@
+@*         margin-bottom: 30px; *@
+@*     } *@
+
+@*     .btn-continue { *@
+@*         background-color: #ffffff; *@
+@*         color: #0d3b66; *@
+@*         padding: 10px 20px; *@
+@*         border: none; *@
+@*         border-radius: 5px; *@
+@*         cursor: pointer; *@
+@*         font-size: 16px; *@
+@*         font-weight: bold; *@
+@*     } *@
+
+@*         .btn-continue:hover { *@
+@*             background-color: #cccccc; *@
+@*         } *@
+@* </style> *@
+
+@* @code { *@
+@*     [Inject] NavigationManager Navigation { get; set; } *@
+
+@*     private void Continue() *@
+@*     { *@
+@*         Navigation.NavigateTo("/dashboard"); *@
+@*     } *@
+@* } *@
+
+@page "/welcome"
+@using Microsoft.AspNetCore.Components
+
+<div class="welcome-container">
+    <img src="img/wallet.png" alt="Welcome Image" class="welcome-image" />
+    <h1>Welcome to Expense Tracker!</h1>
+    <p>Track your expenses and manage your finances</p>
+    <button class="btn-continue" @onclick="Continue">Continue</button>
+</div>
+
+<style>
+    .welcome-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background-color: #0d3b66;
+        color: white;
+        text-align: center;
+    }
+
+    .welcome-image {
+        width: 150px;
+        height: 150px;
+        margin-bottom: 20px;
+    }
+
+    h1 {
+        font-size: 32px;
+        margin-bottom: 10px;
+    }
+
+    p {
+        font-size: 18px;
+        margin-bottom: 30px;
+    }
+
+    .btn-continue {
+        background-color: #ffffff;
+        color: #0d3b66;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+        .btn-continue:hover {
+            background-color: #cccccc;
+        }
+</style>
+
+@code {
+    [Inject] public NavigationManager Navigation { get; set; } = default!;
+
+    private void Continue()
+    {
+        Navigation.NavigateTo("/dashboard");
+    }
+}

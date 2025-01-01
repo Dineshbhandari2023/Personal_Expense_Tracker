@@ -1,0 +1,256 @@
+﻿@page "/dashboard"
+@inject NavigationManager NavigationManager
+
+<h3 class="welcome">Dashboard</h3>
+
+<div class="dashboard">
+    <!-- Header -->
+    <header class="dashboard-header">
+        <h1>Expense Tracker</h1>
+        <div class="user-actions">
+            <button class="logout" @onclick="Logout">Logout</button>
+            <div class="profile">Profile</div>
+        </div>
+    </header>
+
+    <!-- Summary Cards -->
+    <div class="summary-cards">
+        <div class="card">Total Inflows <span>$24,500</span></div>
+        <div class="card">Total Outflows <span>$18,300</span></div>
+        <div class="card">Total Debts <span>$6,200</span></div>
+        <div class="card">Cleared Debt <span>$6,200</span></div>
+        <div class="card">Remaining Debt <span>$6,200</span></div>
+    </div>
+
+    <!-- Transactions Section -->
+    <div class="transactions-section">
+        <div class="transactions">
+            <h4>Top 5 Highest Transactions</h4>
+            <ul class="transaction-list">
+                <li class="transaction positive">Salary Deposit <span>+ $5,000</span></li>
+                <li class="transaction positive">Salary Deposit <span>+ $5,000</span></li>
+                <li class="transaction positive">Salary Deposit <span>+ $5,000</span></li>
+                <li class="transaction positive">Salary Deposit <span>+ $5,000</span></li>
+                <li class="transaction positive">Salary Deposit <span>+ $5,000</span></li>
+            </ul>
+        </div>
+        @* <div class="actions"> *@
+        @*     <button class="action">+ Add Transaction</button> *@
+        @* </div> *@
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="quick-actions">
+        <div class="actions-grid">
+            <div class="batch" @onclick="NavigateToCashIn">
+                <h1 class="plus">+</h1>
+                <h3>Cash In</h3>
+            </div>
+            <div class="batch" @onclick="NavigateToCashOut">
+                <h1 class="minus">-</h1>
+                <h3>Cash Out</h3>
+            </div>
+            <div class="batch" @onclick="NavigateToAddDebt">
+                <h1 class="debt">+</h1>
+                <h3>Add Debt</h3>
+            </div>
+            <div class="batch" @onclick="NavigateToFilter">
+                @* <h1 class="filter">+</h1> *@
+                <h3>Manage Debt</h3>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #f5f5f5;
+        color: #333;
+    }
+
+    .welcome {
+        font-weight:600;
+    }
+
+    .dashboard {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .dashboard-header {
+        background: white;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+        .dashboard-header h1 {
+            font-size: 24px;
+        }
+
+    .user-actions {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .logout {
+        background: #ff4d4d;
+        color: white;
+        border: none;
+        padding: 5px 15px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    .profile {
+        background: #ddd;
+        color: #333;
+        font-size: 14px;
+        padding: 10px;
+        border-radius: 50%;
+        text-align: center;
+        width: 40px;
+        height: 40px;
+        line-height: 20px;
+    }
+
+    .summary-cards {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 20px;
+        margin-bottom: 20px;
+    }
+
+    .card {
+        background: white;
+        font-weight: bold;
+        color: #333;
+        font-size: 16px;
+        padding: 15px;
+        text-align: left;
+        border-radius: 5px;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .transactions-section {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .transaction-list {
+        list-style: none;
+        padding: 0;
+    }
+
+    .transaction {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        font-size: 14px;
+    }
+
+    .positive {
+        color: green;
+    }
+
+    /* .actions { */
+    /*     margin-top: 20px; */
+    /*     text-align: center; */
+    /* } */
+
+    /* .action { */
+    /*     background: #007bff; */
+    /*     color: white; */
+    /*     border: none; */
+    /*     padding: 10px 20px; */
+    /*     border-radius: 5px; */
+    /*     cursor: pointer; */
+    /* } */
+
+    .quick-actions {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .actions-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        text-align: center;5
+    }
+
+        .actions-grid div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+        }
+
+    .plus {
+        color: blue;
+        font-size: 24px;
+    }
+
+    .minus {
+        color: red;
+        font-size: 24px;
+    }
+
+    .debt {
+        color: orange;
+        font-size: 24px;
+    }
+
+    .filter {
+        color: green;
+        font-size: 24px;
+    }
+
+    .batch {
+        cursor: pointer;
+    }
+</style>
+
+@code {
+    private void Logout()
+    {
+        NavigationManager.NavigateTo("/"); 
+    }
+    private void NavigateToCashIn()
+    {
+        NavigationManager.NavigateTo("/cashin");
+    }
+
+    private void NavigateToCashOut()
+    {
+        NavigationManager.NavigateTo("/cashout");
+    }
+
+    private void NavigateToAddDebt()
+    {
+        NavigationManager.NavigateTo("/adddebt");
+    }
+
+    private void NavigateToFilter()
+    {
+        NavigationManager.NavigateTo("/filter");
+    }
+}

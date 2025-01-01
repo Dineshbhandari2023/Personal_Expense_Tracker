@@ -1,5 +1,4 @@
 Components\Layout\MainLayout.razor.css
-Components\Layout\NavMenu.razor.css
 OpenSans-Regular.ttf
 appicon.ico
 appiconLargeTile.scale-100.png
@@ -58,7 +57,7 @@ splashSplashScreen.scale-150.png
 splashSplashScreen.scale-200.png
 splashSplashScreen.scale-400.png
 wwwroot\ExpenseTracker.styles.css
-wwwroot\ExpenseTracker.au9wn8c9iq.bundle.scp.css
+wwwroot\ExpenseTracker.g22z3imsl2.bundle.scp.css
 AboutAssets.txt
 wwwroot\css\app.css
 wwwroot\css\bootstrap\bootstrap.min.css

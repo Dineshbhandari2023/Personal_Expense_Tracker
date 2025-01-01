@@ -1,0 +1,145 @@
+﻿@page "/"
+@inject UserService UserService
+@inject NavigationManager NavigationManager
+@using ExpenseTracker.Components.Layout
+@layout FirstLayout
+@using ExpenseTracker.Models
+
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+    }
+
+    .login {
+        margin: 20px 0;
+        font-weight: 500;
+        font-size: 25px;
+        text-align: center;
+        margin: 10px 2px;
+        padding: 4px;
+    }
+
+    .login-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        height: 60vh;
+    }
+
+    .label {
+        display: block;
+        width: 100%;
+        max-width: 300px;
+        font-size: 14px;
+        font-weight: 500;
+        margin-bottom: 5px;
+        text-align: left;
+    }
+
+
+    .input-field {
+        display: block;
+        width: 100%;
+        max-width: 300px;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        font-size: 16px;
+    }
+
+    .login-button {
+        width: 50%;
+        margin:0 auto;
+        max-width: 250px;
+        padding:5px 10px;
+        background-color: blue;
+        font-weight: 400;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.3s;
+         border: 1px solid black;
+    }
+
+    .login-button:hover {
+         background-color: white;
+        color: black;
+        transition: 0.3s;
+        font-weight: 600;
+       
+    }
+
+    .message {
+        margin-top: 10px;
+        font-size: 14px;
+        color: red;
+        text-align: center;
+    }
+
+    .register-link {
+        margin-top: 10px;
+        font-size: 14px;
+        text-decoration: none;
+        color: #007bff;
+        cursor: pointer;
+    }
+
+    .register-link:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<div class="login-container">
+    <h3 class="login">Account Setup</h3>
+
+    <div>
+        <label class="label">Username:</label>
+        <input class="input-field" @bind="LoginUsername" placeholder="Username" />
+    </div>
+
+    <div>
+        <label class="label">Password:</label>
+        <input class="input-field" @bind="LoginPassword" placeholder="Password" type="password" />
+    </div>
+
+    <button class="login-button" @onclick="LoginPage">Login</button>
+    <a class="register-link" href="Register">Register</a>
+</div>
+
+@if (!string.IsNullOrEmpty(Message))
+{
+    <p class="message">@Message</p>
+}
+
+@code {
+    private string LoginUsername = "";
+    private string LoginPassword = "";
+    private string Message = "";
+
+    private List<User> Users = new();
+
+    protected override void OnInitialized()
+    {
+        Users = UserService.LoadUsers();
+    }
+
+    private void LoginPage()
+    {
+        var user = Users.FirstOrDefault(u => u.Username == LoginUsername);
+
+        if (user != null && UserService.ValidatePassword(LoginPassword, user.Password))
+        {
+            NavigationManager.NavigateTo("/welcome");
+        }
+        else
+        {
+            Message = "Invalid username or password.";
+        }
+    }
+}
