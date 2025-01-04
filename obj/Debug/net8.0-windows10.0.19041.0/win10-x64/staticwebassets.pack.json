@@ -21,6 +21,10 @@
       "PackagePath": "staticwebassets\\favicon.png"
     },
     {
+      "Id": "C:\\Users\\Dinesh Bhandari\\OneDrive\\Desktop\\ad\\ExpenseTracker\\wwwroot\\img\\Wallet.png",
+      "PackagePath": "staticwebassets\\img\\Wallet.png"
+    },
+    {
       "Id": "C:\\Users\\Dinesh Bhandari\\OneDrive\\Desktop\\ad\\ExpenseTracker\\wwwroot\\index.html",
       "PackagePath": "staticwebassets\\index.html"
     },

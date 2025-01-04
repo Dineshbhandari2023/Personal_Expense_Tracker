@@ -413,6 +413,88 @@
       ]
     },
     {
+      "Route": "img/Wallet.png",
+      "AssetFile": "img/Wallet.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "25599"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"tIz8DbfD7mdyOdwkopqysFgJlftX5LB6RBxce68sCoY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 01 Jan 2025 13:02:24 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-tIz8DbfD7mdyOdwkopqysFgJlftX5LB6RBxce68sCoY="
+        }
+      ]
+    },
+    {
+      "Route": "img/Wallet.w9xxy12dbs.png",
+      "AssetFile": "img/Wallet.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "25599"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"tIz8DbfD7mdyOdwkopqysFgJlftX5LB6RBxce68sCoY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 01 Jan 2025 13:02:24 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "w9xxy12dbs"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-tIz8DbfD7mdyOdwkopqysFgJlftX5LB6RBxce68sCoY="
+        },
+        {
+          "Name": "label",
+          "Value": "img/Wallet.png"
+        }
+      ]
+    },
+    {
       "Route": "index.372wabyuoy.html",
       "AssetFile": "index.html",
       "Selectors": [],

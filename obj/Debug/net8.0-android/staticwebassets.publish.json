@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "DcoRc7ZhzjdvhQ3xfF+6nLXFxqg1JSAfH1sB8zTeaXQ=",
+  "Hash": "Qbyf9mLPN4pYaECbv1Dm8EflR9jRUP0YkUKitKvKIMQ=",
   "Source": "ExpenseTracker",
   "BasePath": "/",
   "Mode": "Root",
@@ -141,6 +141,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.png"
+    },
+    {
+      "Identity": "C:\\Users\\Dinesh Bhandari\\OneDrive\\Desktop\\ad\\ExpenseTracker\\wwwroot\\img\\Wallet.png",
+      "SourceId": "ExpenseTracker",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Dinesh Bhandari\\OneDrive\\Desktop\\ad\\ExpenseTracker\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "img/Wallet#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "w9xxy12dbs",
+      "Integrity": "tIz8DbfD7mdyOdwkopqysFgJlftX5LB6RBxce68sCoY=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\Wallet.png"
     },
     {
       "Identity": "C:\\Users\\Dinesh Bhandari\\OneDrive\\Desktop\\ad\\ExpenseTracker\\wwwroot\\index.html",
@@ -654,6 +675,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-4mWsDy3aHl36ZbGt8zByK7Pvd4kRUoNgTYzRnwmPHwg="
+        }
+      ]
+    },
+    {
+      "Route": "img/Wallet.png",
+      "AssetFile": "C:\\Users\\Dinesh Bhandari\\OneDrive\\Desktop\\ad\\ExpenseTracker\\wwwroot\\img\\Wallet.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "25599"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"tIz8DbfD7mdyOdwkopqysFgJlftX5LB6RBxce68sCoY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 01 Jan 2025 13:02:24 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-tIz8DbfD7mdyOdwkopqysFgJlftX5LB6RBxce68sCoY="
+        }
+      ]
+    },
+    {
+      "Route": "img/Wallet.w9xxy12dbs.png",
+      "AssetFile": "C:\\Users\\Dinesh Bhandari\\OneDrive\\Desktop\\ad\\ExpenseTracker\\wwwroot\\img\\Wallet.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "25599"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"tIz8DbfD7mdyOdwkopqysFgJlftX5LB6RBxce68sCoY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 01 Jan 2025 13:02:24 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "w9xxy12dbs"
+        },
+        {
+          "Name": "label",
+          "Value": "img/Wallet.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-tIz8DbfD7mdyOdwkopqysFgJlftX5LB6RBxce68sCoY="
         }
       ]
     },

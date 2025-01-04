@@ -10,22 +10,33 @@
         margin: 0;
         padding: 0;
         height: 100%;
+        background-color: burlywood;
     }
 
     .register {
-        margin: 20px 0;
         font-weight: 600;
-        font-size: 40px;
+        font-size: 30px;
         text-align: center;
-        margin: 10px 0;
+        margin: 9px 0;
         padding: 4px;
     }
 
+    .label {
+        display: block;
+        width: 100%;
+        max-width: 300px;
+        font-size: 14px;
+        font-weight: 500;
+        margin-bottom: 5px;
+        text-align: left;
+    }
+
     .register-container {
+        margin: 5px;
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 15px;
+        gap: 8px;
         justify-content: center;
         height: 60vh;
     }
@@ -46,7 +57,7 @@
         margin: 0 auto;
         max-width: 150px;
         padding: 5px 10px;
-        background-color: black;
+        background-color: deepskyblue;
         font-weight: 600;
         color: white;
         border: none;
@@ -90,15 +101,32 @@
 
 
 <div class="register-container">
-    <h3 class="register"> Create MoneyMap Account</h3>
+    <h3 class="register"> Create Personal Expense tracker Account</h3>
+
+    <div>
+     <label class="label">Username:</label>
     <input class="input-field" @bind="RegisterUsername" placeholder="Username" />
+    </div>
+
+    <div>
+    <label class="label">Password:</label>
     <input class="input-field" @bind="RegisterPassword" placeholder="Password" type="password" />
+    </div>
+
+    <div>
+        <label class="label">Email:</label>
     <input class="input-field" @bind="RegisterEmail" placeholder="Email" />
+    </div>
+
+    <div>
+
+    <label class="label">Select Currency:</label>
     <select class="select-field" @bind="SelectedCurrency">
         <option value="" disabled selected>Select Currency</option>
         <option value="USD">USD</option>
         <option value="NPR">NPR</option>
     </select>
+    </div>
 
 
     <button class="register-button" @onclick="RegisterPage">Register</button>

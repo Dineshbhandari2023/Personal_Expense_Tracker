@@ -11,7 +11,7 @@
         public required TransactionType Type { get; set; }
         public string? Notes { get; set; }
 
-        // Debt-specific fields
+        // Fields to track debt details
         public DateTime? DueDate { get; set; }
         public DebtStatus? Status { get; set; }
     }

@@ -28,10 +28,10 @@ public class TransactionService
     }
 
 
-    public List<Transaction> GetTopFiveTransactions()
+    public List<Transaction> GetTopRecentTransactions()
     {
         var allTransactions = LoadTransactions();
-        var topFiveTransactions = allTransactions.Where(transaction => transaction.Type == TransactionType.CashIn || transaction.Type == TransactionType.CashOut).OrderByDescending(transaction => transaction.Amount).Take(5).ToList();
+        var topFiveTransactions = allTransactions.OrderByDescending(transaction => transaction.Amount).Take(5).ToList();
         return topFiveTransactions;
     }
 
@@ -87,7 +87,6 @@ public class TransactionService
             Tags = transaction.Tags,
             Type = TransactionType.Debt,
             Notes = transaction.Notes,
-            // Debt-specific fields
             DueDate = transaction.DueDate,
             Status = DebtStatus.Unpaid
         };

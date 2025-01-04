@@ -3,13 +3,13 @@
 @inject TransactionService TransactionService
 @using ExpenseTracker.Models
 
-<h3>Cash Out</h3>
+<h3 class="cashout-title">Cash Out</h3>
 
 <div class="cashout-container">
     <form class="cashout-form" @onsubmit="HandleSubmit">
         <div>
             <label for="source">Source</label>
-            <input type="text" id="source" @bind="source" placeholder="EG: Salary" required />
+            <input type="text" id="source" @bind="source" placeholder="EG: Salary, Rent, Groceries, Monthly" required />
         </div>
         <div>
             <label for="amount">Amount</label>
@@ -52,6 +52,11 @@
 </div>
 
 <style>
+     .cashout-title {
+        text-align: center;
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
     .back {
         background: #;
         color: black;
@@ -88,7 +93,7 @@
 
     .cashout-container {
         width: 400px;
-        margin: 50px auto;
+        margin: 20px auto;
         background: white;
         padding: 20px;
         border-radius: 8px;

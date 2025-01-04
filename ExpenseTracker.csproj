@@ -63,25 +63,21 @@
       <AndroidResource Remove="NewFolder\**" />
       <AndroidResource Remove="obj\**" />
       <AndroidResource Remove="wwwroot\NewFolder1\**" />
-      <AndroidResource Remove="wwwroot\NewFolder\**" />
       <Compile Remove="Components\NewFolder\**" />
       <Compile Remove="NewFolder1\**" />
       <Compile Remove="NewFolder\**" />
       <Compile Remove="obj\**" />
       <Compile Remove="wwwroot\NewFolder1\**" />
-      <Compile Remove="wwwroot\NewFolder\**" />
       <Content Remove="Components\NewFolder\**" />
       <Content Remove="NewFolder1\**" />
       <Content Remove="NewFolder\**" />
       <Content Remove="obj\**" />
       <Content Remove="wwwroot\NewFolder1\**" />
-      <Content Remove="wwwroot\NewFolder\**" />
       <EmbeddedResource Remove="Components\NewFolder\**" />
       <EmbeddedResource Remove="NewFolder1\**" />
       <EmbeddedResource Remove="NewFolder\**" />
       <EmbeddedResource Remove="obj\**" />
       <EmbeddedResource Remove="wwwroot\NewFolder1\**" />
-      <EmbeddedResource Remove="wwwroot\NewFolder\**" />
       <MauiXaml Remove="Components\NewFolder\**" />
       <MauiXaml Remove="NewFolder1\**" />
       <MauiXaml Remove="NewFolder\**" />
@@ -91,7 +87,6 @@
       <None Remove="NewFolder\**" />
       <None Remove="obj\**" />
       <None Remove="wwwroot\NewFolder1\**" />
-      <None Remove="wwwroot\NewFolder\**" />
     </ItemGroup>
 
     <ItemGroup>
@@ -109,6 +104,10 @@
         <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
         <PackageReference Include="Microsoft.AspNetCore.Components.WebView.Maui" Version="$(MauiVersion)" />
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="wwwroot\NewFolder\" />
     </ItemGroup>
 
 </Project>

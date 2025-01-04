@@ -29,13 +29,13 @@
     <AppXManifest Include="C:\Users\Dinesh Bhandari\OneDrive\Desktop\ad\ExpenseTracker\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2025-01-04T19:41:38.162</Modified>
+      <Modified>2025-01-04T22:25:47.327</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Dinesh Bhandari\OneDrive\Desktop\ad\ExpenseTracker\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2025-01-04T08:55:31.207</Modified>
+      <Modified>2025-01-04T21:38:16.251</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Dinesh Bhandari\OneDrive\Desktop\ad\ExpenseTracker\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\ExpenseTracker.runtimeconfig.json">
       <PackagePath>ExpenseTracker.runtimeconfig.json</PackagePath>
@@ -43,11 +43,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Dinesh Bhandari\OneDrive\Desktop\ad\ExpenseTracker\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\ExpenseTracker.dll">
       <PackagePath>ExpenseTracker.dll</PackagePath>
-      <Modified>2025-01-04T19:41:37.540</Modified>
+      <Modified>2025-01-04T22:25:47.044</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Dinesh Bhandari\OneDrive\Desktop\ad\ExpenseTracker\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\apphost.exe">
       <PackagePath>ExpenseTracker.exe</PackagePath>
-      <Modified>2025-01-04T19:41:37.560</Modified>
+      <Modified>2025-01-04T22:25:47.048</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Dinesh Bhandari\OneDrive\Desktop\ad\ExpenseTracker\Resources\Raw\AboutAssets.txt">
       <PackagePath>AboutAssets.txt</PackagePath>
@@ -68,6 +68,10 @@
     <AppxPackagedFile Include="C:\Users\Dinesh Bhandari\OneDrive\Desktop\ad\ExpenseTracker\wwwroot\favicon.png">
       <PackagePath>wwwroot\favicon.png</PackagePath>
       <Modified>2024-12-17T03:09:56.250</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Dinesh Bhandari\OneDrive\Desktop\ad\ExpenseTracker\wwwroot\img\Wallet.png">
+      <PackagePath>wwwroot\img\Wallet.png</PackagePath>
+      <Modified>2025-01-01T13:02:24.489</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Dinesh Bhandari\OneDrive\Desktop\ad\ExpenseTracker\wwwroot\index.html">
       <PackagePath>wwwroot\index.html</PackagePath>
@@ -699,7 +703,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Dinesh Bhandari\OneDrive\Desktop\ad\ExpenseTracker\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\ExpenseTracker.deps.json">
       <PackagePath>ExpenseTracker.deps.json</PackagePath>
-      <Modified>2025-01-04T08:55:31.432</Modified>
+      <Modified>2025-01-04T21:38:16.362</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Dinesh Bhandari\.nuget\packages\humanizer.core\2.14.1\lib\net6.0\Humanizer.dll">
       <PackagePath>Humanizer.dll</PackagePath>
@@ -1031,7 +1035,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Dinesh Bhandari\OneDrive\Desktop\ad\ExpenseTracker\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\staticwebassets.build.endpoints.json">
       <PackagePath>ExpenseTracker.staticwebassets.endpoints.json</PackagePath>
-      <Modified>2025-01-04T04:02:25.480</Modified>
+      <Modified>2025-01-04T21:37:50.796</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Dinesh Bhandari\.nuget\packages\microsoft.maui.controls.compatibility\8.0.83\lib\net8.0-windows10.0.19041\Microsoft.Maui.Controls.Compatibility.pri">
       <PackagePath>Microsoft.Maui.Controls.Compatibility.pri</PackagePath>

@@ -1,34 +1,53 @@
 ﻿@page "/transactions"
 @using ExpenseTracker.Models
 @inject TransactionService TransactionService;
+@inject TagService TagService;
 
 <NavLink class="back" href="/dashboard">Back</NavLink>
 <h1>Transactions</h1>
 
-<div class="filters">
-    <div>
-        <label for="tagFilter">Filter by Tag:</label>
-        <input id="tagFilter" @bind="tagFilter" placeholder="Enter tag name" />
-    </div>
-    <div>
-        <label for="startDate">Start Date:</label>
-        <input id="startDate" type="date" @bind="startDate" />
-        <label for="endDate">End Date:</label>
-        <input id="endDate" type="date" @bind="endDate" />
-    </div>
-    <div>
-        <button class="btn" @onclick="ApplyFilters">Apply Filters</button>
-        <button class="btn" @onclick="ClearFilters">Clear Filters</button>
-    </div>
-</div>
 
-<div>
-    <label>Sort By:</label>
-    <select @bind="sortBy">
-        <option value="date">Date</option>
-        <option value="tag">Tag</option>
-    </select>
-    <button class="btn" @onclick="SortTransactions">Sort</button>
+<div class="filter-container">
+    <h2>Filter & Sort Transactions</h2>
+    <div class="filters">
+        <!-- Filter by Type -->
+        <div class="filter-item">
+            <label for="type-filter">Type:</label>
+            <select id="type-filter" @onchange="FilterByType">
+                <option value="All">All</option>
+                <option value="CashIn">CashIn</option>
+                <option value="CashOut">CashOut</option>
+                <option value="Debt">Debt</option>
+            </select>
+        </div>
+
+        <!-- Filter by Tags -->
+        <div class="filter-item">
+            <label for="tags-filter">Tags:</label>
+            <select id="tags-filter" @onchange="FilterByTag">
+                <option value="All">All</option>
+                @foreach (var tag in TagService.GetTagNames())
+                {
+                    <option value="@tag">@tag</option>
+                }
+            </select>
+        </div>
+
+        <!-- Filter by Date Range -->
+        <div class="filter-item">
+            <label for="date-start">Date Range:</label>
+            <input type="date" id="date-start" @onchange="SetStartDate" />
+            <span>to</span>
+            <input type="date" id="date-end" @onchange="SetEndDate" />
+        </div>
+
+        <!-- Sorting -->
+        <div class="filter-item">
+            <label for="search">Search:</label>
+            <input type="text" id="search" placeholder="Search transactions" @oninput="OnSearchChanged" />
+        </div>
+
+    </div>
 </div>
 
 <table class="table">
@@ -65,6 +84,106 @@
 </table>
 
 <style>
+    .filter-container {
+        margin: 30px auto;
+        padding: 20px 25px;
+        max-width: 950px;
+        background: linear-gradient(135deg, #ffffff, #f5f5f5);
+        border-radius: 12px;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        border: 1px solid #e6e6e6;
+    }
+
+        .filter-container h2 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            color: #4d4d4d;
+        }
+
+    .filters {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+    }
+
+    .filter-item {
+        display: flex;
+        flex-direction: column;
+    }
+
+        .filter-item label {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #555;
+            font-size: 14px;
+        }
+
+        .filter-item select,
+        .filter-item input {
+            padding: 12px 15px;
+            font-size: 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            background: #fff;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+            .filter-item select:hover,
+            .filter-item input:hover {
+                border-color: #0073e6;
+                box-shadow: 0 2px 5px rgba(0, 115, 230, 0.2);
+            }
+
+            .filter-item input::placeholder {
+                color: #aaa;
+                font-style: italic;
+            }
+
+    #search {
+        width: 100%;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .filter-actions {
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .btn-reset {
+        background-color: #ff6666;
+        color: #fff;
+        padding: 10px 20px;
+        font-size: 14px;
+        font-weight: 600;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+        .btn-reset:hover {
+            background-color: #cc3333;
+        }
+
+    .btn-apply {
+        background-color: #4caf50;
+        color: #fff;
+        padding: 10px 20px;
+        font-size: 14px;
+        font-weight: 600;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+        .btn-apply:hover {
+            background-color: #3e8e41;
+        }
     .chip {
         display: inline-block;
         background-color: lightblue;
@@ -111,66 +230,75 @@
     private List<Transaction> transactions = new();
     private List<Transaction> filteredTransactions = new();
 
-    private string tagFilter = string.Empty;
-    private string sortBy = "date";
+    // Sort & Filter specific variables
+    private string selectedType = "All";
+    private string selectedTag = "All";
     private DateTime? startDate;
     private DateTime? endDate;
 
+    private string searchQuery = string.Empty;
+
     protected override void OnInitialized()
     {
-        // Load transactions from the database
+        // Load transactions from the db
         transactions = TransactionService.LoadTransactions();
         filteredTransactions = transactions;
     }
+    private void FilterByType(ChangeEventArgs e)
+    {
+        selectedType = e.Value?.ToString() ?? "All";
+        ApplyFilters();
+    }
+    private void FilterByTag(ChangeEventArgs e)
+    {
+        selectedTag = e.Value?.ToString() ?? "All";
+        ApplyFilters();
+    }
+    private void SetStartDate(ChangeEventArgs e)
+    {
+        if (DateTime.TryParse(e.Value?.ToString(), out DateTime date))
+        {
+            startDate = date;
+            ApplyFilters();
+        }
+    }
+    private void SetEndDate(ChangeEventArgs e)
+    {
+        if (DateTime.TryParse(e.Value?.ToString(), out DateTime date))
+        {
+            endDate = date;
+            ApplyFilters();
+        }
+    }
 
+    private void OnSearchChanged(ChangeEventArgs e)
+    {
+        searchQuery = e.Value?.ToString() ?? string.Empty;
+        ApplyFilters();
+    }
     private void ApplyFilters()
     {
         filteredTransactions = transactions;
-
-        // Filter by tag
-        if (!string.IsNullOrEmpty(tagFilter))
+        if (selectedType != "All")
         {
-            filteredTransactions = filteredTransactions
-                .Where(t => t.Tags.Any(tag => tag.Contains(tagFilter, StringComparison.OrdinalIgnoreCase)))
-                .ToList();
+            filteredTransactions = filteredTransactions.Where(t => t.Type.ToString() == selectedType).ToList();
+        }
+        if (selectedTag != "All")
+        {
+            filteredTransactions = filteredTransactions.Where(t => t.Tags.Contains(selectedTag)).ToList();
+        }
+        if (startDate != null)
+        {
+            filteredTransactions = filteredTransactions.Where(t => t.Date >= startDate).ToList();
+        }
+        if (endDate != null)
+        {
+            filteredTransactions = filteredTransactions.Where(t => t.Date <= endDate).ToList();
         }
 
-        // Filter by date range
-        if (startDate.HasValue)
+        if (!string.IsNullOrEmpty(searchQuery))
         {
-            filteredTransactions = filteredTransactions
-                .Where(t => t.Date >= startDate.Value)
-                .ToList();
-        }
-        if (endDate.HasValue)
-        {
-            filteredTransactions = filteredTransactions
-                .Where(t => t.Date <= endDate.Value)
-                .ToList();
-        }
-    }
-
-    private void ClearFilters()
-    {
-        tagFilter = string.Empty;
-        startDate = null;
-        endDate = null;
-        filteredTransactions = transactions;
-    }
-
-    private void SortTransactions()
-    {
-        if (sortBy == "date")
-        {
-            filteredTransactions = filteredTransactions
-                .OrderBy(t => t.Date)
-                .ToList();
-        }
-        else if (sortBy == "tag")
-        {
-            filteredTransactions = filteredTransactions
-                .OrderBy(t => t.Tags.FirstOrDefault())
-                .ToList();
+            filteredTransactions = filteredTransactions.Where(t => t.Source.Contains(searchQuery) || t.Notes.Contains(searchQuery)).ToList();
         }
     }
 }

@@ -52,6 +52,9 @@
     <AppxPackagedFile Include="C:\Users\Dinesh Bhandari\OneDrive\Desktop\ad\ExpenseTracker\wwwroot\favicon.png">
       <PackagePath>wwwroot\favicon.png</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Dinesh Bhandari\OneDrive\Desktop\ad\ExpenseTracker\wwwroot\img\Wallet.png">
+      <PackagePath>wwwroot\img\Wallet.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Dinesh Bhandari\OneDrive\Desktop\ad\ExpenseTracker\wwwroot\index.html">
       <PackagePath>wwwroot\index.html</PackagePath>
     </AppxPackagedFile>
