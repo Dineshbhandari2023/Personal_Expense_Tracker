@@ -1,0 +1,30 @@
+[
+  {
+    "Propose": "Salary",
+    "Amount": 15000,
+    "Notes": "Job bata aako Paisa",
+    "Date": "0001-01-01T00:00:00",
+    "Category": "Credit"
+  },
+  {
+    "Propose": "Salary",
+    "Amount": 25000,
+    "Notes": "Job",
+    "Date": "0001-01-01T00:00:00",
+    "Category": "credit"
+  },
+  {
+    "Propose": "Remitance",
+    "Amount": 10000,
+    "Notes": "Dads money",
+    "Date": "0001-01-01T00:00:00",
+    "Category": "credit"
+  },
+  {
+    "Propose": "Salary",
+    "Amount": 10000,
+    "Notes": "job bata aako paisa",
+    "Date": "0001-01-01T00:00:00",
+    "Category": "credit"
+  }
+]

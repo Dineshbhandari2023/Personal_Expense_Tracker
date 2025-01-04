@@ -1,0 +1,182 @@
+﻿@* @page "/debtmanagement" *@
+@* @inject TransactionService TransactionService *@
+@* @using ExpenseTracker.Models *@
+
+
+@* <h2>Debt Management</h2> *@
+
+@* <div class="debt-management"> *@
+@*     <div class="header-actions"> *@
+@*         <button class="btn-primary" @onclick="NavigateToDashboard">Dashboard</button> *@
+@*         <button class="add-debt" @onclick="NavigateToAddDebt">+ Add New Debt</button> *@
+@*     </div> *@
+
+@*     <div class="active-debt"> *@
+@*         <h4>Active Debt</h4> *@
+
+@*         <table> *@
+@*             <thead> *@
+@*                 <tr> *@
+@*                     <th>Source</th> *@
+@*                     <th>Amount</th> *@
+@*                     <th>Due Date</th> *@
+@*                     <th>Status</th> *@
+@*                     <th>Tags/Notes</th> *@
+@*                     <th>Action</th> *@
+@*                 </tr> *@
+@*             </thead> *@
+@*             <tbody> *@
+@*                 @if (transactions.Any()) *@
+@*                 { *@
+@*                     @foreach (var transaction in transactions) *@
+@*                     { *@
+@*                         <tr> *@
+@*                             <td>@transaction.Source</td> *@
+@*                             <td>NPR @transaction.Amount</td> *@
+@*                             <td>@(transaction.DueDate?.ToShortDateString() ?? "N/A")</td> *@
+@*                             <td>@transaction.Status</td> *@
+@*                             <td>@transaction.Notes</td> *@
+@*                             <td> *@
+@*                                 @if (transaction.Status == DebtStatus.Unpaid) *@
+@*                                 { *@
+@*                                     <button class="action_button" @onclick="() => ClearDebt(transaction)">Clear</button> *@
+@*                                 } *@
+@*                                 else *@
+@*                                 { *@
+@*                                     <span>Settled</span> *@
+@*                                 } *@
+@*                             </td> *@
+@*                         </tr> *@
+@*                     } *@
+@*                 } *@
+@*                 else *@
+@*                 { *@
+@*                     <tr> *@
+@*                         <td colspan="6" style="text-align:center;">No active debts found.</td> *@
+@*                     </tr> *@
+@*                 } *@
+@*             </tbody> *@
+@*         </table> *@
+@*     </div> *@
+
+@*     @if (!string.IsNullOrEmpty(errorMessage)) *@
+@*     { *@
+@*         <p class="error-message">@errorMessage</p> *@
+@*     } *@
+@* </div> *@
+
+@* <style> *@
+@*     .debt-management { *@
+@*         padding: 20px; *@
+@*     } *@
+
+@*     .header-actions { *@
+@*         display: flex; *@
+@*         justify-content: flex-end; *@
+@*         margin-bottom: 10px; *@
+@*     } *@
+
+@*     .add-debt { *@
+@*         background-color: #007bff; *@
+@*         color: white; *@
+@*         border: none; *@
+@*         padding: 10px 15px; *@
+@*         border-radius: 5px; *@
+@*         cursor: pointer; *@
+@*     } *@
+
+@*     .active-debt input[type="text"] { *@
+@*         margin-bottom: 10px; *@
+@*         padding: 5px; *@
+@*         width: 100%; *@
+@*         box-sizing: border-box; *@
+@*     } *@
+
+@*     table { *@
+@*         width: 100%; *@
+@*         border-collapse: collapse; *@
+@*         margin-top: 10px; *@
+@*     } *@
+
+@*     th, td { *@
+@*         padding: 10px; *@
+@*         text-align: left; *@
+@*         border-bottom: 1px solid #ddd; *@
+@*     } *@
+
+@*     .delete { *@
+@*         color: red; *@
+@*         border: none; *@
+@*         background: none; *@
+@*         cursor: pointer; *@
+@*     } *@
+
+@*     .pagination { *@
+@*         margin-top: 10px; *@
+@*         display: flex; *@
+@*         justify-content: flex-end; *@
+@*         gap: 5px; *@
+@*     } *@
+
+@*         .pagination button { *@
+@*             background-color: #ddd; *@
+@*             border: none; *@
+@*             padding: 5px 10px; *@
+@*             border-radius: 3px; *@
+@*             cursor: pointer; *@
+@*         } *@
+
+@*             .pagination button:disabled { *@
+@*                 cursor: not-allowed; *@
+@*                 opacity: 0.5; *@
+@*             } *@
+@*     .btn-primary { *@
+@*         padding: 8px 12px; *@
+@*         margin: 5px; *@
+@*         border: none; *@
+@*         border-radius: 4px; *@
+@*         cursor: pointer; *@
+@*         background-color: #007bff; *@
+@*         color: #fff; *@
+@*     } *@
+
+@*         .btn-primary:hover { *@
+@*             background-color: #0056b3; *@
+@*         } *@
+@* </style> *@
+
+@* @code { *@
+
+@*     private decimal cashInHands = 0; *@
+@*     private List<Transaction> transactions = new(); *@
+
+@*     private string errorMessage = string.Empty; *@
+@*     private bool showToast = false; *@
+
+@*     protected override void OnInitialized() *@
+@*     { *@
+@*         // Load debt transactions from the db *@
+@*         transactions = TransactionService.LoadDebtTransactions(); *@
+
+@*         cashInHands = TransactionService.GetTotalCashInflow(); *@
+@*     } *@
+
+@*     private void ClearDebt(Transaction t) *@
+@*     { *@
+@*         try *@
+@*         { *@
+@*             TransactionService.RemoveDebtTransaction(t); *@
+@*             transactions = TransactionService.LoadDebtTransactions(); *@
+@*         } *@
+@*         catch (Exception ex) *@
+@*         { *@
+@*             errorMessage = ex.Message; *@
+@*         } *@
+@*     } *@
+
+@*     private void ShowErrorToast(string message) *@
+@*     { *@
+@*         errorMessage = message; *@
+@*         showToast = true; *@
+@*     } *@
+@* } *@

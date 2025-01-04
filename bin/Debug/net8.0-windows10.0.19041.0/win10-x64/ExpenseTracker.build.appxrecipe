@@ -226,6 +226,9 @@
     <AppxPackagedFile Include="C:\Users\Dinesh Bhandari\OneDrive\Desktop\ad\ExpenseTracker\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-400.png">
       <PackagePath>dotnet_bot.scale-400.png</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Dinesh Bhandari\OneDrive\Desktop\ad\ExpenseTracker\cashins.json">
+      <PackagePath>cashins.json</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Dinesh Bhandari\.nuget\packages\microsoft.windows.sdk.net.ref\10.0.19041.54\lib\net8.0\Microsoft.Windows.SDK.NET.dll">
       <PackagePath>Microsoft.Windows.SDK.NET.dll</PackagePath>
     </AppxPackagedFile>
@@ -274,9 +277,6 @@
     <AppxPackagedFile Include="C:\Users\Dinesh Bhandari\.nuget\packages\microsoft.extensions.caching.memory\9.0.0\lib\net8.0\Microsoft.Extensions.Caching.Memory.dll">
       <PackagePath>Microsoft.Extensions.Caching.Memory.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dinesh Bhandari\.nuget\packages\microsoft.extensions.configuration\8.0.0\lib\net8.0\Microsoft.Extensions.Configuration.dll">
-      <PackagePath>Microsoft.Extensions.Configuration.dll</PackagePath>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Dinesh Bhandari\.nuget\packages\microsoft.extensions.configuration.abstractions\9.0.0\lib\net8.0\Microsoft.Extensions.Configuration.Abstractions.dll">
       <PackagePath>Microsoft.Extensions.Configuration.Abstractions.dll</PackagePath>
     </AppxPackagedFile>
@@ -298,20 +298,8 @@
     <AppxPackagedFile Include="C:\Users\Dinesh Bhandari\.nuget\packages\microsoft.extensions.dependencymodel\9.0.0\lib\net8.0\Microsoft.Extensions.DependencyModel.dll">
       <PackagePath>Microsoft.Extensions.DependencyModel.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dinesh Bhandari\.nuget\packages\microsoft.extensions.fileproviders.abstractions\8.0.0\lib\net8.0\Microsoft.Extensions.FileProviders.Abstractions.dll">
-      <PackagePath>Microsoft.Extensions.FileProviders.Abstractions.dll</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dinesh Bhandari\.nuget\packages\microsoft.extensions.fileproviders.composite\8.0.0\lib\net8.0\Microsoft.Extensions.FileProviders.Composite.dll">
-      <PackagePath>Microsoft.Extensions.FileProviders.Composite.dll</PackagePath>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Dinesh Bhandari\.nuget\packages\microsoft.extensions.fileproviders.embedded\8.0.10\lib\net8.0\Microsoft.Extensions.FileProviders.Embedded.dll">
       <PackagePath>Microsoft.Extensions.FileProviders.Embedded.dll</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dinesh Bhandari\.nuget\packages\microsoft.extensions.fileproviders.physical\8.0.0\lib\net8.0\Microsoft.Extensions.FileProviders.Physical.dll">
-      <PackagePath>Microsoft.Extensions.FileProviders.Physical.dll</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dinesh Bhandari\.nuget\packages\microsoft.extensions.filesystemglobbing\8.0.0\lib\net8.0\Microsoft.Extensions.FileSystemGlobbing.dll">
-      <PackagePath>Microsoft.Extensions.FileSystemGlobbing.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Dinesh Bhandari\.nuget\packages\microsoft.extensions.logging\9.0.0\lib\net8.0\Microsoft.Extensions.Logging.dll">
       <PackagePath>Microsoft.Extensions.Logging.dll</PackagePath>

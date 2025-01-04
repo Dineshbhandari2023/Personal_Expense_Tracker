@@ -1,4 +1,7 @@
-﻿using System.Security.Cryptography;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
 using ExpenseTracker.Models;
@@ -14,7 +17,7 @@ public class UserService
     public List<User> LoadUsers()
     {
         if (!File.Exists(FilePath))
-            return new List<User>();  // Return an empty list if no users exist
+            return new List<User>();  
 
         var json = File.ReadAllText(FilePath);
         return JsonSerializer.Deserialize<List<User>>(json) ?? new List<User>();

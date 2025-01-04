@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "v8/ZrAebzzw=",
+  "dgSpecHash": "ySd/WfKfd1I=",
   "success": true,
   "projectFilePath": "C:\\Users\\Dinesh Bhandari\\OneDrive\\Desktop\\ad\\ExpenseTracker\\ExpenseTracker.csproj",
   "expectedPackageFiles": [
@@ -73,9 +73,7 @@
     "C:\\Users\\Dinesh Bhandari\\.nuget\\packages\\sqlitepclraw.core\\2.1.10\\sqlitepclraw.core.2.1.10.nupkg.sha512",
     "C:\\Users\\Dinesh Bhandari\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.1.10\\sqlitepclraw.lib.e_sqlite3.2.1.10.nupkg.sha512",
     "C:\\Users\\Dinesh Bhandari\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3.android\\2.1.10\\sqlitepclraw.lib.e_sqlite3.android.2.1.10.nupkg.sha512",
-    "C:\\Users\\Dinesh Bhandari\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3.ios\\2.1.10\\sqlitepclraw.lib.e_sqlite3.ios.2.1.10.nupkg.sha512",
     "C:\\Users\\Dinesh Bhandari\\.nuget\\packages\\sqlitepclraw.provider.e_sqlite3\\2.1.10\\sqlitepclraw.provider.e_sqlite3.2.1.10.nupkg.sha512",
-    "C:\\Users\\Dinesh Bhandari\\.nuget\\packages\\sqlitepclraw.provider.internal\\2.1.10\\sqlitepclraw.provider.internal.2.1.10.nupkg.sha512",
     "C:\\Users\\Dinesh Bhandari\\.nuget\\packages\\system.buffers\\4.4.0\\system.buffers.4.4.0.nupkg.sha512",
     "C:\\Users\\Dinesh Bhandari\\.nuget\\packages\\system.codedom\\6.0.0\\system.codedom.6.0.0.nupkg.sha512",
     "C:\\Users\\Dinesh Bhandari\\.nuget\\packages\\system.collections.immutable\\7.0.0\\system.collections.immutable.7.0.0.nupkg.sha512",
@@ -90,7 +88,6 @@
     "C:\\Users\\Dinesh Bhandari\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
     "C:\\Users\\Dinesh Bhandari\\.nuget\\packages\\system.reflection.metadata\\7.0.0\\system.reflection.metadata.7.0.0.nupkg.sha512",
     "C:\\Users\\Dinesh Bhandari\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
-    "C:\\Users\\Dinesh Bhandari\\.nuget\\packages\\system.runtime.interopservices.nfloat.internal\\6.0.1\\system.runtime.interopservices.nfloat.internal.6.0.1.nupkg.sha512",
     "C:\\Users\\Dinesh Bhandari\\.nuget\\packages\\system.text.encodings.web\\9.0.0\\system.text.encodings.web.9.0.0.nupkg.sha512",
     "C:\\Users\\Dinesh Bhandari\\.nuget\\packages\\system.text.json\\9.0.0\\system.text.json.9.0.0.nupkg.sha512",
     "C:\\Users\\Dinesh Bhandari\\.nuget\\packages\\system.threading.channels\\7.0.0\\system.threading.channels.7.0.0.nupkg.sha512",
@@ -182,10 +179,6 @@
     "C:\\Users\\Dinesh Bhandari\\.nuget\\packages\\microsoft.android.ref.34\\34.0.145\\microsoft.android.ref.34.34.0.145.nupkg.sha512",
     "C:\\Users\\Dinesh Bhandari\\.nuget\\packages\\microsoft.android.runtime.34.android-arm\\34.0.145\\microsoft.android.runtime.34.android-arm.34.0.145.nupkg.sha512",
     "C:\\Users\\Dinesh Bhandari\\.nuget\\packages\\microsoft.android.runtime.34.android-x86\\34.0.145\\microsoft.android.runtime.34.android-x86.34.0.145.nupkg.sha512",
-    "C:\\Users\\Dinesh Bhandari\\.nuget\\packages\\microsoft.ios.ref.net8.0_18.0\\18.0.8316\\microsoft.ios.ref.net8.0_18.0.18.0.8316.nupkg.sha512",
-    "C:\\Users\\Dinesh Bhandari\\.nuget\\packages\\microsoft.ios.runtime.iossimulator-x64.net8.0_18.0\\18.0.8316\\microsoft.ios.runtime.iossimulator-x64.net8.0_18.0.18.0.8316.nupkg.sha512",
-    "C:\\Users\\Dinesh Bhandari\\.nuget\\packages\\microsoft.maccatalyst.runtime.maccatalyst-x64.net8.0_18.0\\18.0.8316\\microsoft.maccatalyst.runtime.maccatalyst-x64.net8.0_18.0.18.0.8316.nupkg.sha512",
-    "C:\\Users\\Dinesh Bhandari\\.nuget\\packages\\microsoft.maccatalyst.ref.net8.0_18.0\\18.0.8316\\microsoft.maccatalyst.ref.net8.0_18.0.18.0.8316.nupkg.sha512",
     "C:\\Users\\Dinesh Bhandari\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.19041.54\\microsoft.windows.sdk.net.ref.10.0.19041.54.nupkg.sha512"
   ],
   "logs": []

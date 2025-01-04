@@ -1,5 +1,8 @@
 ﻿@page "/dashboard"
 @inject NavigationManager NavigationManager
+@inject TagService TagService
+@inject TransactionService TransactionService
+@using ExpenseTracker.Models;
 
 <h3 class="welcome">Dashboard</h3>
 
@@ -8,6 +11,8 @@
     <header class="dashboard-header">
         <h1>Expense Tracker</h1>
         <div class="user-actions">
+            <button class="show-transaction" @onclick="NavigateToTransactions">Show All Transactions</button>
+            <button class="show-transaction" @onclick="NavigateToDebtManagement">Manage Debts</button>
             <button class="logout" @onclick="Logout">Logout</button>
             <div class="profile">Profile</div>
         </div>
@@ -15,11 +20,13 @@
 
     <!-- Summary Cards -->
     <div class="summary-cards">
-        <div class="card">Total Inflows <span>$24,500</span></div>
-        <div class="card">Total Outflows <span>$18,300</span></div>
-        <div class="card">Total Debts <span>$6,200</span></div>
-        <div class="card">Cleared Debt <span>$6,200</span></div>
-        <div class="card">Remaining Debt <span>$6,200</span></div>
+        <div class="card">Total Cash <span>@totalCash</span></div>
+        <div class="card">Total Inflows <span>@Inflow</span></div>
+        <div class="card">Total Outflows <span>@Outflow</span></div>
+        <div class="card">Total Debts <span>@Debt</span></div>
+        <div class="card">Cleared Debt <span>@clearedDebt</span></div>
+        <div class="card">Remaining Debt <span>@remainingDebt</span></div>
+        <div class="card">Total Transactions <span>@Transactions</span></div>
     </div>
 
     <!-- Transactions Section -->
@@ -34,9 +41,6 @@
                 <li class="transaction positive">Salary Deposit <span>+ $5,000</span></li>
             </ul>
         </div>
-        @* <div class="actions"> *@
-        @*     <button class="action">+ Add Transaction</button> *@
-        @* </div> *@
     </div>
 
     <!-- Quick Actions -->
@@ -54,14 +58,113 @@
                 <h1 class="debt">+</h1>
                 <h3>Add Debt</h3>
             </div>
-            <div class="batch" @onclick="NavigateToFilter">
-                @* <h1 class="filter">+</h1> *@
-                <h3>Manage Debt</h3>
+            <div class="batch" @onclick="OpenTagModal">
+                <h1 class="tag">+</h1>
+                <h3>Add Tags</h3>
             </div>
         </div>
 
     </div>
 </div>
+
+@if (showTagModal)
+{
+    <div class="modal">
+        <div class="modal-content">
+            <h3>Add a Tag</h3>
+            <input type="text" @bind="newTag" placeholder="Enter tag name" />
+            <button @onclick="AddTag">Add Tag</button>
+            <button @onclick="CloseTagModal">Close</button>
+        </div>
+    </div>
+}
+
+@code {
+    private bool showTagModal = false;
+    private string newTag = "";
+
+    private void OpenTagModal()
+    {
+        showTagModal = true;
+    }
+
+    private void CloseTagModal()
+    {
+        showTagModal = false;
+        newTag = "";
+    }
+
+    private void AddTag()
+    {
+        if (!string.IsNullOrWhiteSpace(newTag))
+        {
+            TagService.AddTag(newTag); 
+            showTagModal = false;
+            newTag = "";
+        }
+    }
+
+    private void Logout()
+    {
+        NavigationManager.NavigateTo("/"); 
+    }
+    private void NavigateToCashIn()
+    {
+        NavigationManager.NavigateTo("/cashin");
+    }
+
+    private void NavigateToCashOut()
+    {
+        NavigationManager.NavigateTo("/cashout");
+    }
+
+    private void NavigateToAddDebt()
+    {
+        NavigationManager.NavigateTo("/adddebt");
+    }
+
+    private void NavigateToFilter()
+    {
+        NavigationManager.NavigateTo("/filter");
+    }
+    private void NavigateToDebtManagement()
+    {
+        NavigationManager.NavigateTo("/debtmanagement");
+    }
+    private void NavigateToTransactions()
+    {
+        NavigationManager.NavigateTo("/transactions");
+    }
+}
+
+@code {
+    private decimal totalCash;
+    private decimal Inflow;
+    private decimal Outflow;
+    private int Transactions;
+    private decimal Debt;
+    private decimal remainingDebt;
+    private decimal clearedDebt;
+
+
+    private List<Transaction> recentTransactions = new();
+    private List<Transaction> pendingDebts = new();
+
+    protected override void OnInitialized()
+    {
+        totalCash = TransactionService.GetTotalCash();
+        Inflow = TransactionService.GetTotalCashInflow();
+        Outflow = TransactionService.GetTotalCashOutflow();
+        Transactions = TransactionService.GetTotalTransactions();
+
+        Debt = TransactionService.GetTotalDebt();
+        remainingDebt = TransactionService.GetRemainingDebt();
+        clearedDebt = TransactionService.GetClearedDebt();
+
+        recentTransactions = TransactionService.GetTopFiveTransactions();
+        pendingDebts = TransactionService.GetPendingDebtTransactions();
+    }
+}
 
 <style>
     body {
@@ -73,7 +176,7 @@
     }
 
     .welcome {
-        font-weight:600;
+        font-weight: 600;
     }
 
     .dashboard {
@@ -150,6 +253,16 @@
         box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
     }
 
+    .show-transaction {
+        align-items: right;
+        background: blue;
+        color: white;
+        border: none;
+        padding: 5px 15px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
     .transaction-list {
         list-style: none;
         padding: 0;
@@ -166,20 +279,6 @@
         color: green;
     }
 
-    /* .actions { */
-    /*     margin-top: 20px; */
-    /*     text-align: center; */
-    /* } */
-
-    /* .action { */
-    /*     background: #007bff; */
-    /*     color: white; */
-    /*     border: none; */
-    /*     padding: 10px 20px; */
-    /*     border-radius: 5px; */
-    /*     cursor: pointer; */
-    /* } */
-
     .quick-actions {
         background: white;
         padding: 20px;
@@ -191,7 +290,8 @@
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 10px;
-        text-align: center;5
+        text-align: center;
+        5
     }
 
         .actions-grid div {
@@ -227,30 +327,50 @@
     .batch {
         cursor: pointer;
     }
+
+    .modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+    }
+
+    .modal-content {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        width: 300px;
+        text-align: center;
+    }
+
+    .modal input {
+        padding: 10px;
+        font-size: 16px;
+        width: 100%;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: 2px solid #ccc;
+    }
+
+    .modal button {
+        padding: 10px;
+        margin: 5px;
+        background-color: blue;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+        .modal button:hover {
+            background-color: white;
+            color: black;
+        }
 </style>
-
-@code {
-    private void Logout()
-    {
-        NavigationManager.NavigateTo("/"); 
-    }
-    private void NavigateToCashIn()
-    {
-        NavigationManager.NavigateTo("/cashin");
-    }
-
-    private void NavigateToCashOut()
-    {
-        NavigationManager.NavigateTo("/cashout");
-    }
-
-    private void NavigateToAddDebt()
-    {
-        NavigationManager.NavigateTo("/adddebt");
-    }
-
-    private void NavigateToFilter()
-    {
-        NavigationManager.NavigateTo("/filter");
-    }
-}

@@ -29,25 +29,25 @@
     <AppXManifest Include="C:\Users\Dinesh Bhandari\OneDrive\Desktop\ad\ExpenseTracker\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2025-01-01T14:58:16.692</Modified>
+      <Modified>2025-01-04T19:41:38.162</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Dinesh Bhandari\OneDrive\Desktop\ad\ExpenseTracker\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2025-01-01T14:37:20.995</Modified>
+      <Modified>2025-01-04T08:55:31.207</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Dinesh Bhandari\OneDrive\Desktop\ad\ExpenseTracker\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\ExpenseTracker.runtimeconfig.json">
       <PackagePath>ExpenseTracker.runtimeconfig.json</PackagePath>
-      <Modified>2025-01-01T07:36:04.662</Modified>
+      <Modified>2025-01-04T05:18:24.893</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Dinesh Bhandari\OneDrive\Desktop\ad\ExpenseTracker\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\ExpenseTracker.dll">
       <PackagePath>ExpenseTracker.dll</PackagePath>
-      <Modified>2025-01-01T14:58:16.285</Modified>
+      <Modified>2025-01-04T19:41:37.540</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Dinesh Bhandari\OneDrive\Desktop\ad\ExpenseTracker\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\apphost.exe">
       <PackagePath>ExpenseTracker.exe</PackagePath>
-      <Modified>2025-01-01T14:58:16.289</Modified>
+      <Modified>2025-01-04T19:41:37.560</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Dinesh Bhandari\OneDrive\Desktop\ad\ExpenseTracker\Resources\Raw\AboutAssets.txt">
       <PackagePath>AboutAssets.txt</PackagePath>
@@ -301,6 +301,10 @@
       <PackagePath>dotnet_bot.scale-400.png</PackagePath>
       <Modified>2025-01-01T14:37:13.802</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Dinesh Bhandari\OneDrive\Desktop\ad\ExpenseTracker\cashins.json">
+      <PackagePath>cashins.json</PackagePath>
+      <Modified>2025-01-01T19:37:06.820</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Dinesh Bhandari\.nuget\packages\microsoft.windows.sdk.net.ref\10.0.19041.54\lib\net8.0\Microsoft.Windows.SDK.NET.dll">
       <PackagePath>Microsoft.Windows.SDK.NET.dll</PackagePath>
       <Modified>2024-10-14T22:26:16.000</Modified>
@@ -365,10 +369,6 @@
       <PackagePath>Microsoft.Extensions.Caching.Memory.dll</PackagePath>
       <Modified>2024-10-29T02:49:34.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dinesh Bhandari\.nuget\packages\microsoft.extensions.configuration\8.0.0\lib\net8.0\Microsoft.Extensions.Configuration.dll">
-      <PackagePath>Microsoft.Extensions.Configuration.dll</PackagePath>
-      <Modified>2023-10-31T14:59:20.000</Modified>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Dinesh Bhandari\.nuget\packages\microsoft.extensions.configuration.abstractions\9.0.0\lib\net8.0\Microsoft.Extensions.Configuration.Abstractions.dll">
       <PackagePath>Microsoft.Extensions.Configuration.Abstractions.dll</PackagePath>
       <Modified>2024-10-29T02:43:10.000</Modified>
@@ -397,25 +397,9 @@
       <PackagePath>Microsoft.Extensions.DependencyModel.dll</PackagePath>
       <Modified>2024-10-29T02:47:32.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dinesh Bhandari\.nuget\packages\microsoft.extensions.fileproviders.abstractions\8.0.0\lib\net8.0\Microsoft.Extensions.FileProviders.Abstractions.dll">
-      <PackagePath>Microsoft.Extensions.FileProviders.Abstractions.dll</PackagePath>
-      <Modified>2023-10-31T14:59:04.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dinesh Bhandari\.nuget\packages\microsoft.extensions.fileproviders.composite\8.0.0\lib\net8.0\Microsoft.Extensions.FileProviders.Composite.dll">
-      <PackagePath>Microsoft.Extensions.FileProviders.Composite.dll</PackagePath>
-      <Modified>2023-10-31T14:59:18.000</Modified>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Dinesh Bhandari\.nuget\packages\microsoft.extensions.fileproviders.embedded\8.0.10\lib\net8.0\Microsoft.Extensions.FileProviders.Embedded.dll">
       <PackagePath>Microsoft.Extensions.FileProviders.Embedded.dll</PackagePath>
       <Modified>2024-09-18T18:38:58.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dinesh Bhandari\.nuget\packages\microsoft.extensions.fileproviders.physical\8.0.0\lib\net8.0\Microsoft.Extensions.FileProviders.Physical.dll">
-      <PackagePath>Microsoft.Extensions.FileProviders.Physical.dll</PackagePath>
-      <Modified>2023-10-31T14:59:20.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Dinesh Bhandari\.nuget\packages\microsoft.extensions.filesystemglobbing\8.0.0\lib\net8.0\Microsoft.Extensions.FileSystemGlobbing.dll">
-      <PackagePath>Microsoft.Extensions.FileSystemGlobbing.dll</PackagePath>
-      <Modified>2023-10-31T14:58:56.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Dinesh Bhandari\.nuget\packages\microsoft.extensions.logging\9.0.0\lib\net8.0\Microsoft.Extensions.Logging.dll">
       <PackagePath>Microsoft.Extensions.Logging.dll</PackagePath>
@@ -715,7 +699,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Dinesh Bhandari\OneDrive\Desktop\ad\ExpenseTracker\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\ExpenseTracker.deps.json">
       <PackagePath>ExpenseTracker.deps.json</PackagePath>
-      <Modified>2025-01-01T14:37:21.130</Modified>
+      <Modified>2025-01-04T08:55:31.432</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Dinesh Bhandari\.nuget\packages\humanizer.core\2.14.1\lib\net6.0\Humanizer.dll">
       <PackagePath>Humanizer.dll</PackagePath>
@@ -1047,7 +1031,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Dinesh Bhandari\OneDrive\Desktop\ad\ExpenseTracker\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\staticwebassets.build.endpoints.json">
       <PackagePath>ExpenseTracker.staticwebassets.endpoints.json</PackagePath>
-      <Modified>2025-01-01T08:19:33.759</Modified>
+      <Modified>2025-01-04T04:02:25.480</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Dinesh Bhandari\.nuget\packages\microsoft.maui.controls.compatibility\8.0.83\lib\net8.0-windows10.0.19041\Microsoft.Maui.Controls.Compatibility.pri">
       <PackagePath>Microsoft.Maui.Controls.Compatibility.pri</PackagePath>

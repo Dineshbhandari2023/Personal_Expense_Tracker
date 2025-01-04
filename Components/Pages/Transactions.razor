@@ -1,0 +1,176 @@
+﻿@page "/transactions"
+@using ExpenseTracker.Models
+@inject TransactionService TransactionService;
+
+<NavLink class="back" href="/dashboard">Back</NavLink>
+<h1>Transactions</h1>
+
+<div class="filters">
+    <div>
+        <label for="tagFilter">Filter by Tag:</label>
+        <input id="tagFilter" @bind="tagFilter" placeholder="Enter tag name" />
+    </div>
+    <div>
+        <label for="startDate">Start Date:</label>
+        <input id="startDate" type="date" @bind="startDate" />
+        <label for="endDate">End Date:</label>
+        <input id="endDate" type="date" @bind="endDate" />
+    </div>
+    <div>
+        <button class="btn" @onclick="ApplyFilters">Apply Filters</button>
+        <button class="btn" @onclick="ClearFilters">Clear Filters</button>
+    </div>
+</div>
+
+<div>
+    <label>Sort By:</label>
+    <select @bind="sortBy">
+        <option value="date">Date</option>
+        <option value="tag">Tag</option>
+    </select>
+    <button class="btn" @onclick="SortTransactions">Sort</button>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Source</th>
+            <th>Type</th>
+            <th>Tags</th>
+            <th>Amount</th>
+            <th>Notes</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var transaction in filteredTransactions)
+        {
+            <tr>
+                <td>@transaction.Date.ToShortDateString()</td>
+                <td>@transaction.Source</td>
+                <td style="color: @(transaction.Type == TransactionType.CashIn ? "green" : "red");">@transaction.Type</td>
+                <td>
+                    @foreach (var tag in transaction.Tags)
+                    {
+                        <span class="chip">@tag</span>
+                    }
+                </td>
+                <td style="color: @(transaction.Type == TransactionType.CashIn ? "green" : "red");">
+                    NPR @transaction.Amount
+                </td>
+                <td>@transaction.Notes</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<style>
+    .chip {
+        display: inline-block;
+        background-color: lightblue;
+        color: #333;
+        padding: 5px 10px;
+        margin: 2px;
+        border-radius: 8px;
+        font-size: 12px;
+        font-weight: bold;
+        border: 1px solid #ccc;
+    }
+
+    .back {
+        background: #;
+        color: black;
+        margin: 10px 0;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .filters {
+        margin-bottom: 20px;
+    }
+
+        .filters label {
+            margin-right: 10px;
+        }
+
+    .btn {
+        margin: 5px;
+        padding: 5px 10px;
+        background-color: lightgray;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+</style>
+
+@code {
+    private List<Transaction> transactions = new();
+    private List<Transaction> filteredTransactions = new();
+
+    private string tagFilter = string.Empty;
+    private string sortBy = "date";
+    private DateTime? startDate;
+    private DateTime? endDate;
+
+    protected override void OnInitialized()
+    {
+        // Load transactions from the database
+        transactions = TransactionService.LoadTransactions();
+        filteredTransactions = transactions;
+    }
+
+    private void ApplyFilters()
+    {
+        filteredTransactions = transactions;
+
+        // Filter by tag
+        if (!string.IsNullOrEmpty(tagFilter))
+        {
+            filteredTransactions = filteredTransactions
+                .Where(t => t.Tags.Any(tag => tag.Contains(tagFilter, StringComparison.OrdinalIgnoreCase)))
+                .ToList();
+        }
+
+        // Filter by date range
+        if (startDate.HasValue)
+        {
+            filteredTransactions = filteredTransactions
+                .Where(t => t.Date >= startDate.Value)
+                .ToList();
+        }
+        if (endDate.HasValue)
+        {
+            filteredTransactions = filteredTransactions
+                .Where(t => t.Date <= endDate.Value)
+                .ToList();
+        }
+    }
+
+    private void ClearFilters()
+    {
+        tagFilter = string.Empty;
+        startDate = null;
+        endDate = null;
+        filteredTransactions = transactions;
+    }
+
+    private void SortTransactions()
+    {
+        if (sortBy == "date")
+        {
+            filteredTransactions = filteredTransactions
+                .OrderBy(t => t.Date)
+                .ToList();
+        }
+        else if (sortBy == "tag")
+        {
+            filteredTransactions = filteredTransactions
+                .OrderBy(t => t.Tags.FirstOrDefault())
+                .ToList();
+        }
+    }
+}

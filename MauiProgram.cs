@@ -1,6 +1,8 @@
-﻿
-using System;
+﻿using System;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.Maui.Controls.Hosting;
+using Microsoft.Maui.Hosting;
 
 namespace ExpenseTracker;
 
@@ -16,8 +18,11 @@ public static class MauiProgram
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
             });
 
-        builder.Services.AddDbContext<UserDb>();
+        //builder.Services.AddSingleton<JsonStorageService>();
+
         builder.Services.AddSingleton<UserService>();
+        builder.Services.AddSingleton<TagService>();
+        builder.Services.AddSingleton<TransactionService>();
         builder.Services.AddMauiBlazorWebView();
 
 #if DEBUG

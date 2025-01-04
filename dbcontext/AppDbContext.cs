@@ -1,14 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ExpenseTracker.Models;
 
-public class UserDb : DbContext
+public class AppDbContext : DbContext
 {
+    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
     public DbSet<User> Users { get; set; }
-
-    public UserDb(DbContextOptions<UserDb> options) : base(options) { }
-
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.UseSqlite("Data Source=users.db");
     }
 }
+

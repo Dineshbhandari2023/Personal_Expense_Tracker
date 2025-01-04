@@ -59,20 +59,47 @@
 
     <ItemGroup>
       <AndroidResource Remove="Components\NewFolder\**" />
+      <AndroidResource Remove="NewFolder1\**" />
       <AndroidResource Remove="NewFolder\**" />
+      <AndroidResource Remove="obj\**" />
+      <AndroidResource Remove="wwwroot\NewFolder1\**" />
+      <AndroidResource Remove="wwwroot\NewFolder\**" />
       <Compile Remove="Components\NewFolder\**" />
+      <Compile Remove="NewFolder1\**" />
       <Compile Remove="NewFolder\**" />
+      <Compile Remove="obj\**" />
+      <Compile Remove="wwwroot\NewFolder1\**" />
+      <Compile Remove="wwwroot\NewFolder\**" />
       <Content Remove="Components\NewFolder\**" />
+      <Content Remove="NewFolder1\**" />
       <Content Remove="NewFolder\**" />
+      <Content Remove="obj\**" />
+      <Content Remove="wwwroot\NewFolder1\**" />
+      <Content Remove="wwwroot\NewFolder\**" />
       <EmbeddedResource Remove="Components\NewFolder\**" />
+      <EmbeddedResource Remove="NewFolder1\**" />
       <EmbeddedResource Remove="NewFolder\**" />
+      <EmbeddedResource Remove="obj\**" />
+      <EmbeddedResource Remove="wwwroot\NewFolder1\**" />
+      <EmbeddedResource Remove="wwwroot\NewFolder\**" />
       <MauiXaml Remove="Components\NewFolder\**" />
+      <MauiXaml Remove="NewFolder1\**" />
       <MauiXaml Remove="NewFolder\**" />
+      <MauiXaml Remove="obj\**" />
       <None Remove="Components\NewFolder\**" />
+      <None Remove="NewFolder1\**" />
       <None Remove="NewFolder\**" />
+      <None Remove="obj\**" />
+      <None Remove="wwwroot\NewFolder1\**" />
+      <None Remove="wwwroot\NewFolder\**" />
     </ItemGroup>
 
     <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.App" Version="2.2.8" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.0">
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
         <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.0" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.0">
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

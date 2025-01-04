@@ -1,32 +1,36 @@
 ﻿@page "/adddebt"
+@inject NavigationManager NavigationManager
+@inject TransactionService TransactionService
+@using ExpenseTracker.Models
 
 
 <div class="add-debt-container">
     <h1>Add Debt</h1>
-    
-
+   
+    <form method="post" @onsubmit="HandleSubmit">
         <div class="form-group">
-            <label for="source">Source</label>
-            <InputText id="source" @bind-Value="debtModel.Source" placeholder="Enter source" />
+        <label for="title">Source</label>
+        <input type="text" id="title" @bind="title" placeholder="EG: Salary Deposit" required>
         </div>
 
         <div class="form-group">
-            <label for="amount">Amount</label>
-            <InputNumber id="amount" @bind-Value="debtModel.Amount" placeholder="Enter amount" />
+        <label for="amount">Amount</label>
+        <input type="text" id="amount" name="amount" @bind="amount" placeholder="$0.00" required>
         </div>
 
         <div class="form-group">
-            <label for="notes">Notes</label>
-            <InputText id="notes" @bind-Value="debtModel.Notes" placeholder="Add notes" />
+        <label for="Notes">Notes</label>
+        <textarea id="Notes" @bind="notes" placeholder="Add a note to describe your transaction" rows="3"></textarea>
         </div>
 
         <div class="form-group">
-            <label for="date">Date</label>
-            <InputDate id="date" @bind-Value="debtModel.Date" />
+        <label for="dueDate">Due Date</label>
+        <input type="date" @bind="dueDate" required />
         </div>
 
         <button type="submit" class="btn-submit">Add Debt</button>
-        <NavLink class="back" href="/dashboard">Back</NavLink>
+         <NavLink class="back" href="/dashboard">Back</NavLink>
+     </form>
 
 </div>
 
@@ -99,24 +103,24 @@
 </style>
 
 @code {
-    private DebtModel debtModel = new();
+    private string title;
+    private decimal amount;
+    private DateTime dueDate = DateTime.Today;
+    private string notes;
 
     private void HandleSubmit()
     {
-        // Process the form submission
-        // For example, save to database or display a success message
-        Console.WriteLine("Form Submitted!");
-        Console.WriteLine($"Source: {debtModel.Source}");
-        Console.WriteLine($"Amount: {debtModel.Amount}");
-        Console.WriteLine($"Notes: {debtModel.Notes}");
-        Console.WriteLine($"Date: {debtModel.Date}");
-    }
+        var debtTransaction = new Transaction
+            {
+                Source = title,
+                Amount = amount,
+                Date = DateTime.Today,
+                DueDate = dueDate,
+                Type = TransactionType.Debt,
+                Notes = notes
+            };
 
-    public class DebtModel
-    {
-        public string Source { get; set; }
-        public decimal Amount { get; set; }
-        public string Notes { get; set; }
-        public DateTime Date { get; set; }
+        TransactionService.AddDebtTransaction(debtTransaction);
+        NavigationManager.NavigateTo("/debtmanagement");
     }
 }

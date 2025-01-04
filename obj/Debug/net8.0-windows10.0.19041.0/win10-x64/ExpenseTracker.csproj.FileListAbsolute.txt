@@ -14,18 +14,13 @@ C:\Users\Dinesh Bhandari\OneDrive\Desktop\ad\ExpenseTracker\bin\Debug\net8.0-win
 C:\Users\Dinesh Bhandari\OneDrive\Desktop\ad\ExpenseTracker\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Microsoft.AspNetCore.Components.WebView.dll
 C:\Users\Dinesh Bhandari\OneDrive\Desktop\ad\ExpenseTracker\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Microsoft.AspNetCore.Components.WebView.Maui.dll
 C:\Users\Dinesh Bhandari\OneDrive\Desktop\ad\ExpenseTracker\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Microsoft.AspNetCore.Metadata.dll
-C:\Users\Dinesh Bhandari\OneDrive\Desktop\ad\ExpenseTracker\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.Configuration.dll
 C:\Users\Dinesh Bhandari\OneDrive\Desktop\ad\ExpenseTracker\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.Configuration.Abstractions.dll
 C:\Users\Dinesh Bhandari\OneDrive\Desktop\ad\ExpenseTracker\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.Configuration.Binder.dll
 C:\Users\Dinesh Bhandari\OneDrive\Desktop\ad\ExpenseTracker\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.Configuration.FileExtensions.dll
 C:\Users\Dinesh Bhandari\OneDrive\Desktop\ad\ExpenseTracker\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.Configuration.Json.dll
 C:\Users\Dinesh Bhandari\OneDrive\Desktop\ad\ExpenseTracker\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.DependencyInjection.dll
 C:\Users\Dinesh Bhandari\OneDrive\Desktop\ad\ExpenseTracker\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.DependencyInjection.Abstractions.dll
-C:\Users\Dinesh Bhandari\OneDrive\Desktop\ad\ExpenseTracker\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.FileProviders.Abstractions.dll
-C:\Users\Dinesh Bhandari\OneDrive\Desktop\ad\ExpenseTracker\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.FileProviders.Composite.dll
 C:\Users\Dinesh Bhandari\OneDrive\Desktop\ad\ExpenseTracker\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.FileProviders.Embedded.dll
-C:\Users\Dinesh Bhandari\OneDrive\Desktop\ad\ExpenseTracker\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.FileProviders.Physical.dll
-C:\Users\Dinesh Bhandari\OneDrive\Desktop\ad\ExpenseTracker\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.FileSystemGlobbing.dll
 C:\Users\Dinesh Bhandari\OneDrive\Desktop\ad\ExpenseTracker\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.Logging.dll
 C:\Users\Dinesh Bhandari\OneDrive\Desktop\ad\ExpenseTracker\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Users\Dinesh Bhandari\OneDrive\Desktop\ad\ExpenseTracker\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Microsoft.Extensions.Logging.Debug.dll
@@ -308,3 +303,4 @@ C:\Users\Dinesh Bhandari\OneDrive\Desktop\ad\ExpenseTracker\bin\Debug\net8.0-win
 C:\Users\Dinesh Bhandari\OneDrive\Desktop\ad\ExpenseTracker\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 C:\Users\Dinesh Bhandari\OneDrive\Desktop\ad\ExpenseTracker\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\e_sqlite3.dll
 C:\Users\Dinesh Bhandari\OneDrive\Desktop\ad\ExpenseTracker\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\ExpenseTracker.genpublishdeps.cache
+C:\Users\Dinesh Bhandari\OneDrive\Desktop\ad\ExpenseTracker\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\cashins.json
