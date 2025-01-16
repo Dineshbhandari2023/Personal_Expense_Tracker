@@ -44,13 +44,17 @@
     </section>
 
     <!-- Logout Button -->
-    <button class="btn btn-red">Logout</button>
+    <button class="btn btn-red" @onclick="Logout">Logout</button>
 </div>
 
 @code {
     private void NavigateToDashBoard()
     {
         NavigationManager.NavigateTo("/dashboard");
+    }
+    private void Logout()
+    {
+        NavigationManager.NavigateTo("/");  // Redirect to login page
     }
 }
 
