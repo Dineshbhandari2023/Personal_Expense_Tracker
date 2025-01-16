@@ -29,7 +29,7 @@
     <AppXManifest Include="C:\Users\Dinesh Bhandari\OneDrive\Desktop\ad\ExpenseTracker\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2025-01-16T06:48:09.386</Modified>
+      <Modified>2025-01-16T17:32:34.758</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
@@ -43,11 +43,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Dinesh Bhandari\OneDrive\Desktop\ad\ExpenseTracker\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\ExpenseTracker.dll">
       <PackagePath>ExpenseTracker.dll</PackagePath>
-      <Modified>2025-01-16T06:48:07.012</Modified>
+      <Modified>2025-01-16T17:32:34.241</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Dinesh Bhandari\OneDrive\Desktop\ad\ExpenseTracker\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\apphost.exe">
       <PackagePath>ExpenseTracker.exe</PackagePath>
-      <Modified>2025-01-16T06:48:07.023</Modified>
+      <Modified>2025-01-16T17:32:34.252</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Dinesh Bhandari\OneDrive\Desktop\ad\ExpenseTracker\Resources\Raw\AboutAssets.txt">
       <PackagePath>AboutAssets.txt</PackagePath>
@@ -75,7 +75,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Dinesh Bhandari\OneDrive\Desktop\ad\ExpenseTracker\wwwroot\index.html">
       <PackagePath>wwwroot\index.html</PackagePath>
-      <Modified>2024-12-17T03:09:56.250</Modified>
+      <Modified>2025-01-16T17:29:36.301</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Dinesh Bhandari\OneDrive\Desktop\ad\ExpenseTracker\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-100.png">
       <PackagePath>splashSplashScreen.scale-100.png</PackagePath>
@@ -1035,7 +1035,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Dinesh Bhandari\OneDrive\Desktop\ad\ExpenseTracker\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\staticwebassets.build.endpoints.json">
       <PackagePath>ExpenseTracker.staticwebassets.endpoints.json</PackagePath>
-      <Modified>2025-01-04T21:37:50.796</Modified>
+      <Modified>2025-01-16T17:31:17.590</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Dinesh Bhandari\.nuget\packages\microsoft.maui.controls.compatibility\8.0.100\lib\net8.0-windows10.0.19041\Microsoft.Maui.Controls.Compatibility.pri">
       <PackagePath>Microsoft.Maui.Controls.Compatibility.pri</PackagePath>

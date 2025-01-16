@@ -1,5 +1,17 @@
-﻿@page "/settings"
+﻿@page "/settings";
 @inject NavigationManager NavigationManager;
+@inject TransactionService TransactionService;
+@using ExpenseTracker.Models
+@using System.Text;
+@using System.Collections.Generic;
+@using System.IO;
+@using System.Linq;
+@using Microsoft.AspNetCore.Components;
+@using Microsoft.AspNetCore.Components.Forms;
+@inject IJSRuntime JSRuntime;
+@using Microsoft.JSInterop;
+
+
 
 <div class="settings-container">
     <h1>Settings</h1>
@@ -7,8 +19,8 @@
     <!-- Profile Settings Section -->
     <section class="section">
         <div class="first">
-        <h2>Profile Settings</h2>
-        <button class="back" @onclick="NavigateToDashBoard">Dashboard</button>
+            <h2>Profile Settings</h2>
+            <button class="back" @onclick="NavigateToDashBoard">Dashboard</button>
         </div>
         <div class="form-group">
             <label for="username">Username</label>
@@ -34,13 +46,16 @@
     <section class="section">
         <h2>Data Management</h2>
         <div class="button-group">
-            <button class="btn btn-blue">
+            <button class="btn btn-blue" @onclick="ExportData">
                 <i class="fa fa-download"></i> Export Data
             </button>
-            <button class="btn btn-white">
+            <button class="btn btn-white" @onclick="TriggerFileInput">
                 <i class="fa fa-upload"></i> Import Data
             </button>
         </div>
+        @* <input type="file" id="fileInput" style="display:none;" @onchange="ImportData" /> *@
+        <input type="file" id="fileInput" style="display:none;" @onchange="ImportData" />
+
     </section>
 
     <!-- Logout Button -->
@@ -52,12 +67,85 @@
     {
         NavigationManager.NavigateTo("/dashboard");
     }
+
     private void Logout()
     {
         NavigationManager.NavigateTo("/");  // Redirect to login page
     }
-}
 
+    private async Task ExportData()
+    {
+        var transactions = TransactionService.GetAllTransactions(); // Fetch all transactions
+        var csvData = GenerateCsv(transactions); // Convert to CSV format
+
+        // Initiate file download
+        var fileName = "Transactions.csv";
+        var fileContent = Encoding.UTF8.GetBytes(csvData);
+        var fileContentBase64 = Convert.ToBase64String(fileContent);
+
+        await JSRuntime.InvokeVoidAsync("downloadFile", fileName, fileContentBase64);
+    }
+
+    private async Task ImportData(ChangeEventArgs e)
+    {
+        var file = e.Value as IBrowserFile;
+
+        if (file != null)
+        {
+            using var stream = file.OpenReadStream();
+            using var reader = new StreamReader(stream);
+            var csvContent = await reader.ReadToEndAsync();
+
+            var importedTransactions = ParseCsv(csvContent);
+            TransactionService.AddTransactions(importedTransactions); // Add to the database
+        }
+    }
+
+    private async Task TriggerFileInput()
+    {
+        await JSRuntime.InvokeVoidAsync("eval", "document.getElementById('fileInput').click()");
+    }
+
+
+
+    private string GenerateCsv(IEnumerable<Transaction> transactions)
+    {
+        var csvBuilder = new StringBuilder();
+        csvBuilder.AppendLine("Date,Amount,Type,Tags,Notes");
+
+        foreach (var transaction in transactions)
+        {
+            var tags = string.Join(";", transaction.Tags ?? new List<string>());
+            csvBuilder.AppendLine($"{transaction.Date},{transaction.Amount},{transaction.Type},{tags},{transaction.Notes}");
+        }
+
+        return csvBuilder.ToString();
+    }
+
+    private List<Transaction> ParseCsv(string csvContent)
+    {
+        var lines = csvContent.Split('\n', StringSplitOptions.RemoveEmptyEntries);
+        var transactions = new List<Transaction>();
+
+        foreach (var line in lines.Skip(1)) // Skip header row
+        {
+            var fields = line.Split(',');
+            if (fields.Length >= 5)
+            {
+                transactions.Add(new Transaction
+                    {
+                        Date = DateTime.Parse(fields[0]),
+                        Amount = decimal.Parse(fields[1]),
+                        Type = Enum.Parse<TransactionType>(fields[2]),
+                        Tags = fields[3].Split(';').ToList(),
+                        Notes = fields[4]
+                    });
+            }
+        }
+
+        return transactions;
+    }
+}
 <style>
     .settings-container {
         max-width: 500px;
@@ -67,7 +155,8 @@
         border-radius: 8px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
-    .first{
+
+    .first {
         display: flex;
         justify-content: space-between;
     }
@@ -170,3 +259,4 @@
             background-color: #b52a37;
         }
 </style>
+

@@ -9,6 +9,16 @@
     <link rel="stylesheet" href="css/app.css" />
     <link rel="stylesheet" href="ExpenseTracker.styles.css" />
     <link rel="icon" type="image/png" href="favicon.png" />
+    <script>
+        function downloadFile(fileName, contentBase64) {
+            const link = document.createElement('a');
+            link.download = fileName;
+            link.href = 'data:text/csv;base64,' + contentBase64;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    </script>
 </head>
 
 <body>

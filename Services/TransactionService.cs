@@ -1,5 +1,5 @@
 ﻿using System.Text.Json;
-using ExpenseTracker.Components.Pages;
+using System.Text;
 using ExpenseTracker.Models;
 
 public class TransactionService
@@ -171,5 +171,65 @@ public class TransactionService
         {
             Directory.CreateDirectory(FolderPath);
         }
+
+    }
+    public void AddTransactions(List<Transaction> transactions)
+    {
+        var allTransactions = LoadTransactions();
+        allTransactions.AddRange(transactions);
+
+        SaveTransactions(allTransactions);
+    }
+
+    public List<Transaction> GetAllTransactions()
+    {
+        return LoadTransactions();
+    }
+
+    public string ExportTransactionsToCsv()
+    {
+        var allTransactions = GetAllTransactions();
+        var csvBuilder = new StringBuilder();
+        csvBuilder.AppendLine("Date,Amount,Type,Tags,Notes");
+
+        foreach (var transaction in allTransactions)
+        {
+            var tags = string.Join(";", transaction.Tags ?? new List<string>());
+            csvBuilder.AppendLine($"{transaction.Date:yyyy-MM-dd},{transaction.Amount},{transaction.Type},{tags},{transaction.Notes}");
+        }
+
+        return csvBuilder.ToString();
+    }
+
+    public List<Transaction> ImportTransactionsFromCsv(string csvContent)
+    {
+        var transactions = new List<Transaction>();
+        var lines = csvContent.Split('\n', StringSplitOptions.RemoveEmptyEntries);
+
+        foreach (var line in lines.Skip(1)) // Skip header row
+        {
+            var fields = line.Split(',');
+
+            if (fields.Length >= 5)
+            {
+                transactions.Add(new Transaction
+                {
+                    Date = DateTime.Parse(fields[0]),
+                    Amount = decimal.Parse(fields[1]),
+                    Type = Enum.Parse<TransactionType>(fields[2]),
+                    Tags = fields[3].Split(';').ToList(),
+                    Notes = fields[4]
+                });
+            }
+        }
+
+        return transactions;
+    }
+
+    private void SaveTransactions(List<Transaction> transactions)
+    {
+        EnsureDirectoryExists();
+        var json = JsonSerializer.Serialize(transactions, new JsonSerializerOptions { WriteIndented = true });
+        File.WriteAllText(TransactionFilePath, json);
     }
 }
