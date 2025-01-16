@@ -11,5 +11,6 @@ namespace ExpenseTracker.Models
         public required string Password { get; set; } // This will store the hashed password
         public required string Email { get; set; }
 
+       
     }
 }

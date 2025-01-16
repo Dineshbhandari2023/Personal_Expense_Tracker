@@ -3,8 +3,19 @@
 @inject TagService TagService
 @inject TransactionService TransactionService
 @using ExpenseTracker.Models;
+@using System.Globalization;
+
+
+
 
 <h3 class="welcome">Dashboard</h3>
+
+<!-- Currency Toggle -->
+<div style="text-align: right; margin-bottom: 10px;">
+    <button @onclick="ToggleCurrency" class="currency-toggle">
+        Switch to @(isCurrencyNpr ? "NPR" : "USD")
+    </button>
+</div>
 
 <div class="dashboard">
     <!-- Header -->
@@ -20,18 +31,17 @@
 
     <!-- Summary Cards -->
     <div class="summary-cards">
-        <div class="card">Total Cash <span>@totalCash</span></div>
-        <div class="card">Total Inflows <span>@Inflow</span></div>
-        <div class="card">Total Outflows <span>@Outflow</span></div>
-        <div class="card">Total Debts <span>@Debt</span></div>
-        <div class="card">Cleared Debt <span>@clearedDebt</span></div>
-        <div class="card">Remaining Debt <span>@remainingDebt</span></div>
-        <div class="card">Total Transactions <span>@Transactions</span></div>
+        <div class="card">Total Cash <span>@userCurrency @totalCash.ToString("N2", CultureInfo.InvariantCulture)</span></div>
+        <div class="card">Total Cash Outflow <span>@userCurrency @totalCashOutflow.ToString("N2", CultureInfo.InvariantCulture)</span></div>
+        <div class="card">Total Cash Inflow <span>@userCurrency @totalCashInflow.ToString("N2", CultureInfo.InvariantCulture)</span></div>
+        <div class="card">Clear Debt <span>@userCurrency @clearedDebt.ToString("N2", CultureInfo.InvariantCulture)</span></div>
+        <div class="card">Remaining Debt <span>@userCurrency @remainingDebt.ToString("N2", CultureInfo.InvariantCulture)</span></div>
+        <div class="card">Total Debt <span>@userCurrency @totalDebt.ToString("N2", CultureInfo.InvariantCulture)</span></div>
+        <div class="card">Total Transaction <span>@totalTransactions</span></div>
     </div>
-
-    <!-- Transactions Section -->
-    <div class="transactions-section">
-
+    <!-- Transactions and Pending Debts Section -->
+    <div class="transactions-debts-container">
+        <!-- Transactions Section -->
         <div class="transactions">
             <h4>Top 5 Highest Transactions</h4>
 
@@ -41,11 +51,10 @@
                     foreach (var transaction in recentTransactions)
                     {
                         var transactionStatus = transaction.Type == TransactionType.CashIn ? "positive" : "negative";
-                        var iconClass = transaction.Type == TransactionType.CashIn ? "up" : "down";
 
-                        var icon = transaction.Type == TransactionType.CashIn ? "⬆" : "⬇";
-
-                        <li class="transaction @transactionStatus">@transaction.Source<span>NPR @transaction.Amount</span></li>
+                        <li class="transaction @transactionStatus">
+                            @transaction.Source<span>@userCurrency @transaction.Amount.ToString("N2", CultureInfo.InvariantCulture)</span>
+                        </li>
                     }
                 }
                 else
@@ -54,7 +63,39 @@
                 }
             </ul>
         </div>
+
+        <!-- Pending Debts Section -->
+        <div class="pending-debts">
+            <h4>Pending Debts</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Labels</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (pendingDebts.Any())
+                    {
+                        foreach (var debt in pendingDebts)
+                        {
+                            <tr>
+                                <td>@debt.Source</td>
+                                <td>@userCurrency @debt.Amount.ToString("N2", CultureInfo.InvariantCulture)</td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="2">No pending debts found</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
     </div>
+
 
     <!-- Quick Actions -->
     <div class="quick-actions">
@@ -157,30 +198,77 @@
 
 @code {
     private decimal totalCash;
-    private decimal Inflow;
-    private decimal Outflow;
-    private int Transactions;
-    private decimal Debt;
+    private decimal totalCashInflow;
+    private decimal totalCashOutflow;
+    private int totalTransactions;
+
+    private decimal totalDebt;
     private decimal remainingDebt;
     private decimal clearedDebt;
 
-
     private List<Transaction> recentTransactions = new();
     private List<Transaction> pendingDebts = new();
+    private List<Transaction> transactions = new();
+    private List<Transaction> filteredTransactions = new();
+
+    private string userCurrency = "USD";
+    private decimal conversionRate = 130m; // Example conversion rate: 1 USD = 132 NPR
+    private bool isCurrencyNpr = false;
 
     protected override void OnInitialized()
     {
-        totalCash = TransactionService.GetTotalCash();
-        Inflow = TransactionService.GetTotalCashInflow();
-        Outflow = TransactionService.GetTotalCashOutflow();
-        Transactions = TransactionService.GetTotalTransactions();
+        // Load initial data
+        LoadDashboardData();
+    }
 
-        Debt = TransactionService.GetTotalDebt();
+    private void LoadDashboardData()
+    {
+        totalCash = TransactionService.GetTotalCash();
+        totalCashInflow = TransactionService.GetTotalCashInflow();
+        totalCashOutflow = TransactionService.GetTotalCashOutflow();
+        totalTransactions = TransactionService.GetTotalTransactions();
+
+        totalDebt = TransactionService.GetTotalDebt();
         remainingDebt = TransactionService.GetRemainingDebt();
         clearedDebt = TransactionService.GetClearedDebt();
 
-        recentTransactions = TransactionService.GetTopRecentTransactions();
+        recentTransactions = TransactionService.GetTopFiveTransactions();
         pendingDebts = TransactionService.GetPendingDebtTransactions();
+
+        transactions = TransactionService.LoadTransactions();
+        filteredTransactions = transactions;
+
+        userCurrency = isCurrencyNpr ? "USD" : "NPR";
+    }
+
+    private decimal ConvertCurrency(decimal amount)
+    {
+        return isCurrencyNpr ? amount / conversionRate : amount * conversionRate;
+    }
+
+    private void ToggleCurrency()
+    {
+        isCurrencyNpr = !isCurrencyNpr;
+        userCurrency = isCurrencyNpr ? "USD" : "NPR";
+
+        // Recalculate all amounts
+        totalCash = ConvertCurrency(totalCash);
+        totalCashInflow = ConvertCurrency(totalCashInflow);
+        totalCashOutflow = ConvertCurrency(totalCashOutflow);
+        totalDebt = ConvertCurrency(totalDebt);
+        remainingDebt = ConvertCurrency(remainingDebt);
+        clearedDebt = ConvertCurrency(clearedDebt);
+
+        // Update transactions and debts
+        foreach (var transaction in recentTransactions)
+        {
+            transaction.Amount = ConvertCurrency(transaction.Amount);
+        }
+
+        foreach (var debt in pendingDebts)
+        {
+            debt.Amount = ConvertCurrency(debt.Amount);
+        }
     }
 }
 
@@ -264,14 +352,6 @@
         box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
     }
 
-    .transactions-section {
-        background: white;
-        padding: 20px;
-        border-radius: 8px;
-        margin-bottom: 20px;
-        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    }
-
     .show-transaction {
         align-items: right;
         background: blue;
@@ -281,6 +361,25 @@
         cursor: pointer;
         border-radius: 5px;
     }
+
+    .transactions-debts-container {
+        display: flex;
+        gap: 20px;
+        margin-bottom: 20px;
+    }
+
+    .transactions, .pending-debts {
+        flex: 1;
+        background: #fff;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+        .transactions h4, .pending-debts h4 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
 
     .transaction-list {
         list-style: none;
@@ -297,6 +396,26 @@
     .positive {
         color: green;
     }
+
+    .negative {
+        color: red;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+        table th, table td {
+            text-align: left;
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        table th {
+            background-color: #f1f1f1;
+        }
 
     .quick-actions {
         background: white;

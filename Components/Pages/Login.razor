@@ -94,6 +94,54 @@
     .register-link:hover {
         text-decoration: underline;
     }
+
+    .popup {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+    }
+
+    .popup-content {
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        text-align: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        width: 300px;
+    }
+
+        .popup-content h3 {
+            margin-top: 0;
+            font-size: 20px;
+            color: #333;
+        }
+
+        .popup-content p {
+            margin: 10px 0 20px;
+            font-size: 16px;
+            color: #555;
+        }
+
+    .close-button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+        .close-button:hover {
+            background-color: #0056b3;
+        }
 </style>
 
 <div class="login-container">
@@ -117,11 +165,23 @@
 {
     <p class="message">@Message</p>
 }
+@if (ShowPopup)
+{
+    <div class="popup">
+        <div class="popup-content">
+            <h3>Error</h3>
+            <p>@PopupMessage</p>
+            <button class="close-button" @onclick="ClosePopup">Close</button>
+        </div>
+    </div>
+}
 
 @code {
     private string LoginUsername = "";
     private string LoginPassword = "";
     private string Message = "";
+    private string PopupMessage = "";
+    private bool ShowPopup = false;
 
     private List<User> Users = new();
 
@@ -136,11 +196,17 @@
 
         if (user != null && UserService.ValidatePassword(LoginPassword, user.Password))
         {
+            // Redirect to dashboard if login is successful
             NavigationManager.NavigateTo("/welcome");
         }
         else
         {
-            Message = "Invalid username or password.";
+            PopupMessage = "Invalid username or password.";
+            ShowPopup = true;
         }
+    }
+    private void ClosePopup()
+    {
+        ShowPopup = false;
     }
 }

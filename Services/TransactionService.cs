@@ -35,7 +35,12 @@ public class TransactionService
         return topFiveTransactions;
     }
 
-
+    public List<Transaction> GetTopFiveTransactions()
+    {
+        var allTransactions = LoadTransactions();
+        var topFiveTransactions = allTransactions.OrderByDescending(transaction => transaction.Amount).Take(5).ToList();
+        return topFiveTransactions;
+    }
     public List<Transaction> GetPendingDebtTransactions()
     {
         var allTransactions = LoadTransactions();
